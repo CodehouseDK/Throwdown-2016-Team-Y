@@ -8,8 +8,9 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
 </head>
 <body>    
-  
-        @RenderBody()
-         <script src="/build/js/bundle.js"></script>
+    @User.Identity.Name
+    <p>@Html.ActionLink("Logout", "Logout", "Account")</p>
+    @RenderBody()
+    <script src="/scripts/bundle.js"></script>
 </body>
 </html>
