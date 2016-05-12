@@ -20,8 +20,7 @@ namespace TeamY.Controllers
         {
             _context = context;
         }
-
-
+        
         [HttpGet]
         [Route("getall")]
         public JsonResult GetAll()

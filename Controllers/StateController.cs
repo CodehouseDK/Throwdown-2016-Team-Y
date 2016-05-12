@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using Microsoft.AspNet.Mvc;
 using TeamY.Domain;
@@ -21,8 +22,21 @@ namespace TeamY.Controllers
         }
 
         [HttpGet]
-        [Route("getall")]
-        public JsonResult GetAll()
+        [Route("getlist")]
+        public JsonResult GetList()
+        {
+            var output =_context.States.Select(_ => new StateModel
+            {
+                Id = _.Id,
+                Name = _.Name
+            }).ToList();
+            return Json(output);
+        }
+
+
+        [HttpGet]
+        [Route("getoverview")]
+        public JsonResult GetOverview()
         {
             IList<UserStateOutputModel> outputList = new List<UserStateOutputModel>();
 
@@ -54,6 +68,28 @@ namespace TeamY.Controllers
             }
             return Json(outputList.OrderBy(_ => _.User.Name));
         }
+
+        [HttpGet]
+        [Route("getaggregate")]
+        public JsonResult GetAggregate()
+        {
+            var output = new Collection<StateAggregateModel>();
+            var states = _context.States.ToList();
+            var userStates = _context.UserStates.Where(_ => _.Current).ToList();
+            foreach (var state in states)
+            {
+                var count = userStates.Count(_ => _.StateId == state.Id);
+                output.Add(new StateAggregateModel
+                {
+                    Id = state.Id,
+                    Name = state.Name,
+                    Count = count
+                });
+            }
+
+            return Json(output);
+        }
+
 
         [HttpPost]
         [Route("set")]
