@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNet.Mvc;
+using Microsoft.Data.Entity;
 using TeamY.Domain;
 using TeamY.Infrastructure;
 using TeamY.Services;
@@ -47,7 +48,10 @@ namespace TeamY.Controllers
                 return HttpNotFound();
             }
 
-            return Ok(user);
+            user.Mood = mood;
+            _context.Entry(user).State = EntityState.Modified;
+            _context.SaveChanges();
+            return Ok();
         }
     }
 }
