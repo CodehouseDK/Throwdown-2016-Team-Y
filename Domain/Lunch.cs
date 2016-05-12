@@ -2,9 +2,8 @@
 
 namespace TeamY.Domain
 {
-    public class Lunch
+    public class Lunch : EntityBase
     {
-        public Guid Id { get; set; }
         public DateTime Date { get; set; }
         public string Menu { get; set; }
         public string ImageSrc { get; set; }

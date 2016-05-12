@@ -6,7 +6,7 @@ export class FrokostService {
 
 	getFrokost() {
 		var xhr = new test.AjaxLoader();
-		xhr.getJson("/api/lunch/get", this.success,this.error);
+		xhr.getJson("/api/lunch/", this.success,this.error);
 		return this.dagensFrokostText;
 	}
 
