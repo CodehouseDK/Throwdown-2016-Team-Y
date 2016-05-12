@@ -4,38 +4,139 @@
 }
 
 @model TeamY.Models.HomeModel
-<div>
-<img src="/images/throwdown.jpg" />
-</div>
-  <div class="modal-links">
-      <ul>
-        <li>
-          <a href="#modal-1" rel="modal:open">TEAM Y</a>
-        </li>
-        <li>
-          <a href="#modal-2" rel="modal:open">One More Prodigious Cat</a>
-        </li>
-        <li>
-          <a href="#modal-3" rel="modal:open">@Model.Name</a>
-        </li>
-      </ul>
-    </div>
+<div id="wrapper">
+    <header>
+        <div class="nav">
+            <ul>
+                <li><a href="#">Codehouse</a></li>
+                <li><a href="#">Team 1</a></li>
+                <li><a href="#">Team 2</a></li>
+                <li><a href="#">Team 3</a></li>
+                <li><a href="#">Team 4</a></li>
 
-    <div id="modal-1" style="display:none">
-      <img src="http://i.imgur.com/AzKAV.jpg" width="239" height="170" alt="Just Can't Reach.">
-    </div>
-
-    <div id="modal-2" style="display:none">
-      <img src="http://www.gifbin.com/bin/032014/1395614704_cat_vs_steam.gif" width="396" height="275" alt="Almost Caught It.">
-    </div>
-
-    <div id="modal-3" style="display:none">
-      <iframe src="http://www.codehouse.com" width="360" height="576" frameborder="0"></iframe>
-    </div>
-
-    <div class="modal">
-      <div class="modal-inner">
-        <a rel="modal:close">&times;</a>
-        <div class="modal-content"></div>
-      </div>
-    </div>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <!-- BEGIN: Overview -->
+        <section class="overview">
+            <div class="location--table"></div>
+            <div class="mood--table"></div>
+            <div class="lunch--table"></div>
+        </section>
+        <!-- END: Overview -->
+        <!-- BEGIN: Location settings -->
+        <section class="location--settings">
+            <div class="location--settings--container">
+                <div class="profile-img"> <img src="http://www.codehouse.com/~/media/Codehouse/240x240/240x240-Martin-P.ashx" alt="">
+                </div>
+                <div class="profile-settings">
+                    <div class="location">
+                        <div class="title">Status</div>
+                        <div class="option">
+                            <select>
+                                <option value="work">Work</option>
+                                <option value="home">Home</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mood">
+                        <div class="title">Mood</div>
+                        <div class="option">
+                            <!--http://designwithpc.com/Plugins/ddSlick or http://www.marghoobsuleman.com/jquery-image-dropdown -->
+                            <select>
+                                <option value="happy" data-image="/img/icons/happy.png">Happy</option>
+                                <option value="not happy" data-image="/img/icons/nothappy.png">Not Happy</option>
+                            </select>
+                            <i class="icon-emoticons-03"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END: Location settings -->
+        <!-- BEGIN: Mood stats -->
+        <section class="mood--stats">
+            <div class="mood--stats--container">
+                <div class="data-list">
+                    <ul>
+                        <!--BEGIN Profile -->
+                        <li>
+                            <div class="profile-img"><img src="http://www.codehouse.com/~/media/Codehouse/240x240/240x240-Martin-P.ashx" alt="">
+                            </div>
+                            <div class="profile--mood--icon">
+                                <i class="icon-emoticons-03"></i>
+                            </div>
+                        </li>
+                        <!--END Profile -->
+                        <!--BEGIN Profile -->
+                        <li>
+                            <div class="profile-img">
+                                <img src="http://www.codehouse.com/~/media/Codehouse/240x240/240x240-Martin-P.ashx" alt="">
+                            </div>
+                            <div class="profile--mood--icon">
+                                <i class="icon-emoticons-03"></i>
+                            </div>
+                        </li>
+                        <!--END Profile -->
+                        <!--BEGIN Profile -->
+                        <li>
+                            <div class="profile-img">
+                                <img src="http://www.codehouse.com/~/media/Codehouse/240x240/240x240-Martin-P.ashx" alt="">
+                            </div>
+                            <div class="profile--mood--icon">
+                                <i class="icon-emoticons-03"></i>
+                            </div>
+                        </li>
+                        <!--END Profile -->
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- END: Mood stats -->
+        <!-- BEGIN: Location stats -->
+        <section class="location--details">
+            <div class="location--details--container">
+                <div class="data-list">
+                    <ul>
+                        <!--BEGIN Profile -->
+                        <li>
+                            <div class="profile-img">
+                                <img src="http://www.codehouse.com/~/media/Codehouse/240x240/240x240-Martin-P.ashx" alt="">
+                            </div>
+                            <div class="profile-location">Work</div>
+                            <div class="profile--mood--icon">
+                                <i class="icon-emoticons-03"></i>
+                            </div>
+                        </li>
+                        <!--END Profile -->
+                        <!--BEGIN Profile -->
+                        <li>
+                            <div class="profile-img">
+                                <img src="http://www.codehouse.com/~/media/Codehouse/240x240/240x240-Martin-P.ashx" alt="">
+                            </div>
+                            <div class="profile-location">Work</div>
+                            <div class="profile--mood--icon">
+                                <i class="icon-emoticons-03"></i>
+                            </div>
+                        </li>
+                        <!--END Profile -->
+                        <!--BEGIN Profile -->
+                        <li>
+                            <div class="profile-img">
+                                <img src="http://www.codehouse.com/~/media/Codehouse/240x240/240x240-Martin-P.ashx" alt="">
+                            </div>
+                            <div class="profile-location">Work</div>
+                            <div class="profile--mood--icon">
+                                <i class="icon-emoticons-03"></i>
+                            </div>
+                        </li>
+                        <!--END Profile -->
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="mood--details"></section>
+    </main>
+    <footer></footer>
+</div> 

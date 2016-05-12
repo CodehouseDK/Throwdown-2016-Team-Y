@@ -1,0 +1,13 @@
+﻿@model IEnumerable<TeamY.Domain.Lunch>
+<div>
+    <header>
+        <h1>LunchManager</h1>
+        @Html.ActionLink("Add new","Add")
+        </header>
+        <ul>
+            @foreach (var lunch in Model)
+            {
+                <li>@lunch.Date.ToLongDateString() @Html.ActionLink("Delete", "Delete", new { id = lunch.Id })</li>
+            }
+        </ul>
+</div>

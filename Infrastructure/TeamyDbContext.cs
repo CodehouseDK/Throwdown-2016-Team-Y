@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.Data.Entity;
+﻿using Microsoft.Data.Entity;
+using TeamY.Domain;
 
 namespace TeamY.Infrastructure
 {
@@ -11,5 +8,7 @@ namespace TeamY.Infrastructure
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
         }
+
+        public DbSet<Lunch> Lunches { get; set; }
     }
 }
