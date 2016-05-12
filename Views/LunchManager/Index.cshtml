@@ -1,13 +1,24 @@
 ﻿@model IEnumerable<TeamY.Domain.Lunch>
-<div>
+
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Home Page";
+}
+<div id="wrapper">
     <header>
-        <h1>LunchManager</h1>
-        @Html.ActionLink("Add new","Add")
-        </header>
+        <div class="nav">
+            <ul>
+                <li><a href="#">LunchManager</a></li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        @Html.ActionLink("Add new", "Add")
         <ul>
             @foreach (var lunch in Model)
             {
                 <li>@lunch.Date.ToLongDateString() @Html.ActionLink("Delete", "Delete", new { id = lunch.Id })</li>
             }
         </ul>
+    </main>
 </div>
