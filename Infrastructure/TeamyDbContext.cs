@@ -10,5 +10,7 @@ namespace TeamY.Infrastructure
         }
 
         public DbSet<Lunch> Lunches { get; set; }
+
+        public DbSet<MoodRegistration> MoodRegistrations { get; set; }
     }
 }
