@@ -1,6 +1,6 @@
 ﻿@{
     Layout = "/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = "Home Page";   
+    ViewBag.Title = "Home Page";
 }
 
 @model TeamY.Models.HomeModel
@@ -20,15 +20,75 @@
     <main>
         <!-- BEGIN: Overview -->
         <section class="overview">
-            <div class="location--table"></div>
-            <div class="mood--table"></div>
-            <div class="lunch--table"></div>
+            <div class="location--table">
+                <div class="location-stats">
+                    <h2>Location</h2>
+                    <div class="data-list">
+                        <ul>
+                            <!--BEGIN Location -->
+                            <li>
+                                <div class="location--icon">
+                                    <i class="icon-business"></i>
+                                </div>
+                                <div class="location--title">Meeting</div>
+                                <div class="location-count">10</div>
+                            </li>
+                            <!--END Profile -->
+                            <!--BEGIN Location -->
+                            <li>
+                                <div class="location--icon">
+                                    <i class="icon-lunch"></i>
+                                </div>
+                                <div class="location--title">Lunch</div>
+                                <div class="location-count">3</div>
+                            </li>
+                            <!--END Profile --> <!--BEGIN Location -->
+                            <li>
+                                <div class="location--icon">
+                                    <i class="icon-home"></i>
+                                </div>
+                                <div class="location--title">Home</div>
+                                <div class="location-count">2</div>
+                            </li>
+                            <!--END Profile -->
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            <div class="mood--table">
+                <div class="mood-stats">
+                    <h2>Mood</h2>
+                    <div class="mood-icon">
+                        <i class="icon-happy"></i>
+                    </div>
+                    <div class="mood-data">
+                        52%
+                    </div>
+                </div>
+            </div>
+            <div class="lunch--table">
+                <div class="lunch-stats">
+                    <h2>Todays lunch</h2>
+                    <div class="lunch-content">
+                        <p>
+                            Kogt kylling med spas
+                        </p>
+                        <p>
+                            Kogt spas med kylling
+                        </p>
+
+
+                    </div>
+                </div>
+            </div>
         </section>
         <!-- END: Overview -->
         <!-- BEGIN: Location settings -->
         <section class="location--settings">
             <div class="location--settings--container">
-                <div class="profile-img"> <img src="http://www.codehouse.com/~/media/Codehouse/240x240/240x240-Martin-P.ashx" alt="">
+                <div class="profile-img">
+                    <img src="http://www.codehouse.com/~/media/Codehouse/240x240/240x240-Martin-P.ashx" alt="">
                 </div>
                 <div class="profile-settings">
                     <div class="location">
@@ -48,7 +108,7 @@
                                 <option value="happy" data-image="/img/icons/happy.png">Happy</option>
                                 <option value="not happy" data-image="/img/icons/nothappy.png">Not Happy</option>
                             </select>
-                            <i class="icon-emoticons-03"></i>
+                            <i class="icon-mad"></i>
                         </div>
                     </div>
                 </div>
@@ -62,10 +122,11 @@
                     <ul>
                         <!--BEGIN Profile -->
                         <li>
-                            <div class="profile-img"><img src="http://www.codehouse.com/~/media/Codehouse/240x240/240x240-Martin-P.ashx" alt="">
+                            <div class="profile-img">
+                                <img src="http://www.codehouse.com/~/media/Codehouse/240x240/240x240-Martin-P.ashx" alt="">
                             </div>
                             <div class="profile--mood--icon">
-                                <i class="icon-emoticons-03"></i>
+                                <i class="icon-okay"></i>
                             </div>
                         </li>
                         <!--END Profile -->
@@ -75,7 +136,7 @@
                                 <img src="http://www.codehouse.com/~/media/Codehouse/240x240/240x240-Martin-P.ashx" alt="">
                             </div>
                             <div class="profile--mood--icon">
-                                <i class="icon-emoticons-03"></i>
+                                <i class="icon-good"></i>
                             </div>
                         </li>
                         <!--END Profile -->
@@ -85,7 +146,7 @@
                                 <img src="http://www.codehouse.com/~/media/Codehouse/240x240/240x240-Martin-P.ashx" alt="">
                             </div>
                             <div class="profile--mood--icon">
-                                <i class="icon-emoticons-03"></i>
+                                <i class="icon-clever"></i>
                             </div>
                         </li>
                         <!--END Profile -->
@@ -106,7 +167,7 @@
                             </div>
                             <div class="profile-location">Work</div>
                             <div class="profile--mood--icon">
-                                <i class="icon-emoticons-03"></i>
+                                <i class="icon-neutral"></i>
                             </div>
                         </li>
                         <!--END Profile -->
@@ -117,7 +178,7 @@
                             </div>
                             <div class="profile-location">Work</div>
                             <div class="profile--mood--icon">
-                                <i class="icon-emoticons-03"></i>
+                                <i class="icon-stressed"></i>
                             </div>
                         </li>
                         <!--END Profile -->
@@ -128,7 +189,7 @@
                             </div>
                             <div class="profile-location">Work</div>
                             <div class="profile--mood--icon">
-                                <i class="icon-emoticons-03"></i>
+                                <i class="icon-yelling"></i>
                             </div>
                         </li>
                         <!--END Profile -->

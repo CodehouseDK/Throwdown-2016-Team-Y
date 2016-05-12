@@ -23,17 +23,35 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-chair:before {
+    content: "\e904";
+}
+.icon-smoking:before {
+    content: "\e905";
+}
+.icon-sick:before {
+    content: "\e906";
+}
+.icon-home:before {
+    content: "\e907";
+}
 .icon-business:before {
     content: "\e900";
+}
+.icon-lunch:before {
+    content: "\e903";
+}
+.icon-codehouse:before {
+    content: "\e908";
+}
+.icon-pandora:before {
+    content: "\e909";
 }
 .icon-galaxy:before {
     content: "\e901";
 }
 .icon-lego:before {
     content: "\e902";
-}
-.icon-lunch:before {
-    content: "\e903";
 }
 .icon-cross:before {
     content: "\e90e";
@@ -53,34 +71,34 @@
 .icon-burger:before {
     content: "\e92a";
 }
-.icon-emoticons-07:before {
-    content: "\e92b";
-}
-.icon-emoticons-03:before {
-    content: "\e92c";
-}
-.icon-emoticons-09:before {
-    content: "\e92d";
-}
-.icon-emoticons-10:before {
-    content: "\e92e";
-}
-.icon-emoticons-06:before {
+.icon-mad:before {
     content: "\e92f";
 }
-.icon-emoticons-08:before {
-    content: "\e930";
+.icon-yelling:before {
+    content: "\e92b";
 }
-.icon-emoticons-05:before {
-    content: "\e931";
-}
-.icon-emoticons-02:before {
+.icon-unhappy:before {
     content: "\e932";
 }
-.icon-emoticons-04:before {
+.icon-stressed:before {
+    content: "\e92e";
+}
+.icon-less-happy:before {
+    content: "\e931";
+}
+.icon-neutral:before {
     content: "\e933";
 }
-.icon-emoticons-01:before {
+.icon-okay:before {
+    content: "\e930";
+}
+.icon-good:before {
     content: "\e935";
+}
+.icon-happy:before {
+    content: "\e92c";
+}
+.icon-clever:before {
+    content: "\e92d";
 }
 

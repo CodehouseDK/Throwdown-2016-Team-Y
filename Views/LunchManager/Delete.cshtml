@@ -1,8 +1,23 @@
 ﻿@model TeamY.Domain.Lunch
 
-<h1>Delete</h1>
-@using (Html.BeginForm("Delete", "LunchManager", Model))
-{
-    @Html.DisplayForModel()
-    <p> Really delete? <input type="submit" value="Yes"/> @Html.ActionLink("No", "Index")</p>
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Home Page";
 }
+<div id="wrapper">
+    <header>
+        <div class="nav">
+            <ul>
+                <li><a href="#">LunchManager</a></li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <h1>Delete</h1>
+        @using (Html.BeginForm("Delete", "LunchManager", Model))
+        {
+            @Html.DisplayForModel()
+            <p> Really delete? <input type="submit" value="Yes" /> @Html.ActionLink("No", "Index")</p>
+        }
+    </main>
+</div>

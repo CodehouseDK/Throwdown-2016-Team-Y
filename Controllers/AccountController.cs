@@ -1,16 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Authorization;
 using Microsoft.AspNet.Http.Authentication;
 using Microsoft.AspNet.Mvc;
+using TeamY.Infrastructure;
 
 namespace TeamY.Controllers
 {
     [AllowAnonymous]
     public class AccountController : Controller
     {
+        private TeamyDbContext _context;
+
+        public AccountController(TeamyDbContext context)
+        {
+            _context = context;
+        }
+
         public IActionResult Login()
         {
             return View();
@@ -20,11 +29,17 @@ namespace TeamY.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(string userName)
         {
+            var user = _context.Users.SingleOrDefault(x => x.Initials == userName);
+            if (user == null)
+            {
+                throw new Exception("user not found");
+            }
+
             const string issuer = "https://codehouse.com";
 
             List<Claim> claims = new List<Claim>
             {
-                new Claim(ClaimTypes.Name, userName, ClaimValueTypes.String, issuer),
+                new Claim(ClaimTypes.Name, user.Name, ClaimValueTypes.String, issuer),
                 new Claim(ClaimTypes.Role, "Administrator", ClaimValueTypes.String, issuer),
             };
             var userIdentity = new ClaimsIdentity("SuperSecureLogin");
