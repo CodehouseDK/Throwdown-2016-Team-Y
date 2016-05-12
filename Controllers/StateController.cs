@@ -38,14 +38,14 @@ namespace TeamY.Controllers
                 var state = _context.States.Single(_ => _.Id.ToString() == item.StateId);
                 outputList.Add(new UserStateOutputModel
                 {
-                    User = new User
+                    User = new UserModel
                     {
                         Id = user.Id,
                         TeamId = user.TeamId,
                         Name = user.Name,
                         Initials = user.Initials
                     },
-                    State = new State
+                    State = new StateModel
                     {
                         Id = state.Id,
                         Name = state.Name
