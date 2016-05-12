@@ -3,6 +3,7 @@ using System.Linq;
 using Microsoft.AspNet.Mvc;
 using TeamY.Domain;
 using TeamY.Infrastructure;
+using TeamY.Models;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -26,22 +27,22 @@ namespace TeamY.Controllers
 
         public IActionResult Add()
         {
-            var lunch = new LunchCreate();
+            var lunch = new LunchModel();
             return View("Add", lunch);
         }
 
         [HttpPost]
-        public IActionResult Add([Bind] LunchCreate lunchCreate)
+        public IActionResult Add([Bind] LunchModel lunchModel)
         {
-            if (string.IsNullOrEmpty(lunchCreate.Menu) && string.IsNullOrEmpty(lunchCreate.ImageSrc))
+            if (string.IsNullOrEmpty(lunchModel.Menu) && string.IsNullOrEmpty(lunchModel.ImageSrc))
             {
-                return RedirectToAction("Add", lunchCreate);
+                return RedirectToAction("Add", lunchModel);
             }
-            if (lunchCreate.Date <= DateTime.Today.AddYears(-1))
+            if (lunchModel.Date <= DateTime.Today.AddYears(-1))
             {
-                return RedirectToAction("Add", lunchCreate);
+                return RedirectToAction("Add", lunchModel);
             }
-            var lunch = new Lunch() { Date = lunchCreate.Date, Id = Guid.NewGuid(), Menu = lunchCreate.Menu, ImageSrc = lunchCreate.ImageSrc };
+            var lunch = new Lunch() { Date = lunchModel.Date, Id = Guid.NewGuid(), Menu = lunchModel.Menu, ImageSrc = lunchModel.ImageSrc };
             _dbContext.Lunches.Add(lunch);
             return Ok(_dbContext.SaveChanges());
         }
