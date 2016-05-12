@@ -1,8 +1,8 @@
-import frokost = require("../scripts/ServiceLayer/FrokostService");
+import LunchService = require("../scripts/ServiceLayer/LunchService");
 declare var require: any;
 require("../style/style.scss");
 
-var frokostService = new frokost.FrokostService();
+var lunchService = new LunchService.LunchService();
 
-alert(frokostService.getFrokost());
+var test = lunchService.getLunch();
 

@@ -1,5 +1,5 @@
-var frokost = require("../scripts/ServiceLayer/FrokostService");
+var LunchService = require("../scripts/ServiceLayer/LunchService");
 require("../style/style.scss");
-var frokostService = new frokost.FrokostService();
-alert(frokostService.getFrokost());
+var lunchService = new LunchService.LunchService();
+var test = lunchService.getLunch();
 //# sourceMappingURL=app.js.map
