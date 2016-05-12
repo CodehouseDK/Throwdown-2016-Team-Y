@@ -4,38 +4,71 @@
 }
 
 @model TeamY.Models.HomeModel
-<div>
-<img src="/images/throwdown.jpg" />
+<div id="wrapper">
+    <header>
+        <div class="nav">
+            <ul>
+                <li>Codehouse</li>
+                <li>Team 1</li>
+                <li>Team 2</li>
+                <li>Team 3</li>
+                <li>Team 4</li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <section class="overview">
+            <div class="location--table"></div>
+            <div class="mood--table"></div>
+            <div class="lunch--table"></div>
+        </section>
+        <section class="location--settings">
+            <div class="location--settings--container">
+                <div class="profile-img"> <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=200%C3%97200&w=200&h=200" alt=""> </div>
+                <div class="profile-settings">
+                    <div class="location">
+                        <div class="title">Status</div>
+                        <div class="option">
+                            <select>
+                                <option value="work">Work</option>
+                                <option value="home">Home</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mood">
+                        <div class="title">Mood</div>
+                        <div class="option">
+                            <!--http://designwithpc.com/Plugins/ddSlick or http://www.marghoobsuleman.com/jquery-image-dropdown -->
+                            <select>
+                                <option value="happy" data-image="/img/icons/happy.png">Happy</option>
+                                <option value="not happy" data-image="/img/icons/nothappy.png">Not Happy</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="mood--stats">
+            <div class="mood--stats--container">
+                <div class="data-list">
+                    <ul>
+                        <li>
+                            <div class="profile-img"><img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=200%C3%97200&w=200&h=200" alt=""></div>
+                            <div class="profile--mood--icon"></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="location--details">
+            <div class="location--details--container">
+                <ul>
+                    <li>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section class="mood--details"></section>
+    </main>
+    <footer></footer>
 </div>
-  <div class="modal-links">
-      <ul>
-        <li>
-          <a href="#modal-1" rel="modal:open">TEAM Y</a>
-        </li>
-        <li>
-          <a href="#modal-2" rel="modal:open">One More Prodigious Cat</a>
-        </li>
-        <li>
-          <a href="#modal-3" rel="modal:open">@Model.Name</a>
-        </li>
-      </ul>
-    </div>
-
-    <div id="modal-1" style="display:none">
-      <img src="http://i.imgur.com/AzKAV.jpg" width="239" height="170" alt="Just Can't Reach.">
-    </div>
-
-    <div id="modal-2" style="display:none">
-      <img src="http://www.gifbin.com/bin/032014/1395614704_cat_vs_steam.gif" width="396" height="275" alt="Almost Caught It.">
-    </div>
-
-    <div id="modal-3" style="display:none">
-      <iframe src="http://www.codehouse.com" width="360" height="576" frameborder="0"></iframe>
-    </div>
-
-    <div class="modal">
-      <div class="modal-inner">
-        <a rel="modal:close">&times;</a>
-        <div class="modal-content"></div>
-      </div>
-    </div>
