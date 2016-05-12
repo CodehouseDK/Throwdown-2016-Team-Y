@@ -32,7 +32,8 @@ namespace TeamY.Controllers
             var user = _context.Users.SingleOrDefault(x => x.Initials == userName);
             if (user == null)
             {
-                throw new Exception("user not found");
+                ViewBag.Error = "User name or password incorrect";
+                return View();
             }
 
             const string issuer = "https://codehouse.com";
