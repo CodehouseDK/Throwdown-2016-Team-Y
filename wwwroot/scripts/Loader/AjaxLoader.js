@@ -1,3 +1,4 @@
+"use strict";
 var AjaxLoader = (function () {
     function AjaxLoader() {
     }
@@ -17,6 +18,6 @@ var AjaxLoader = (function () {
         xhr.send();
     };
     return AjaxLoader;
-})();
+}());
 exports.AjaxLoader = AjaxLoader;
 //# sourceMappingURL=AjaxLoader.js.map

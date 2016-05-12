@@ -13,7 +13,7 @@ namespace TeamY.Controllers
     [AllowAnonymous]
     public class AccountController : Controller
     {
-        private TeamyDbContext _context;
+        private readonly TeamyDbContext _context;
 
         public AccountController(TeamyDbContext context)
         {
