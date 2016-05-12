@@ -7,7 +7,12 @@ namespace TeamY.Infrastructure
     {
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            
         }
+
+        public DbSet<User> Users { get; set; }
+        public DbSet<State> States { get; set; }
+        public DbSet<UserState> UserStates { get; set; }
 
         public DbSet<Lunch> Lunches { get; set; }
     }
