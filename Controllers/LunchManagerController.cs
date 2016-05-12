@@ -5,24 +5,15 @@ using TeamY.Domain;
 using TeamY.Infrastructure;
 using TeamY.Models;
 
-// For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace TeamY.Controllers
 {
     public class LunchManagerController : Controller
     {
-        private TeamyDbContext _dbContext;
+        private readonly TeamyDbContext _dbContext;
 
         public LunchManagerController(TeamyDbContext dbContext)
         {
             _dbContext = dbContext;
-        }
-
-        // GET: /<controller>/
-        public IActionResult Index()
-        {
-            var lunches = _dbContext.Lunches.OrderByDescending(x => x.Date).Take(10);
-            return View("Index", lunches);
         }
 
         public IActionResult Add()
@@ -44,7 +35,10 @@ namespace TeamY.Controllers
             }
             var lunch = new Lunch() { Date = lunchModel.Date, Id = Guid.NewGuid(), Menu = lunchModel.Menu, ImageSrc = lunchModel.ImageSrc };
             _dbContext.Lunches.Add(lunch);
-            return Ok(_dbContext.SaveChanges());
+            _dbContext.SaveChanges();
+            return Ok();
+
+
         }
 
         public IActionResult Delete(Guid id)
@@ -62,6 +56,13 @@ namespace TeamY.Controllers
         {
             _dbContext.Lunches.Remove(lunch);
             return Ok(_dbContext.SaveChanges());
+        }
+
+        // GET: /<controller>/
+        public IActionResult Index()
+        {
+            var lunches = _dbContext.Lunches.OrderByDescending(x => x.Date).Take(10);
+            return View("Index", lunches);
         }
     }
 }
