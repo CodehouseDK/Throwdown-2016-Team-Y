@@ -18,6 +18,7 @@ body {
     width: 1024px;
     margin: 0 auto;
 }
+
 header {
     .nav {
         ul {
@@ -34,7 +35,7 @@ header {
 
                 a {
                     color: white;
-                    text-decoration:none;
+                    text-decoration: none;
                 }
             }
         }
@@ -50,7 +51,12 @@ main {
 
     .location {
         @include m('settings') {
-            border: 1px solid red;
+            padding: 10px;
+            margin: 12px 0;
+            border: 1px dotted $red;
+            -webkit-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.5);
+            -moz-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.5);
+            box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.5);
 
             @include m('container') {
                 div {
@@ -63,8 +69,8 @@ main {
 
                     img {
                         display: block;
-                        width:150px;
-                        height:auto;
+                        width: 150px;
+                        height: auto;
                     }
                 }
 
@@ -80,6 +86,96 @@ main {
                     .mood {
                         .title {
                             font-weight: bold;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .mood--stats {
+        padding: 10px;
+        margin: 12px 0;
+        border: 1px dotted $red;
+        -webkit-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.5);
+        -moz-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.5);
+        box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.5);
+
+        .mood--stats--container {
+            .data-list {
+                ul {
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+
+                    li {
+                        list-style: none;
+
+                        .profile-img {
+                            display: inline-block;
+
+                            img {
+                                width: 60px;
+                                height: auto;
+                            }
+                        }
+
+                        .profile--mood--icon {
+                            display: inline-block;
+                            vertical-align: top;
+                            padding: 15px;
+
+                            i {
+                                font-size: 30px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .location--details {
+        padding: 10px;
+        margin: 12px 0;
+        border: 1px dotted $red;
+        -webkit-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.5);
+        -moz-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.5);
+        box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.5);
+
+        .location--details--container {
+            .data-list {
+                ul {
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+
+                    li {
+                        list-style: none;
+
+                        .profile-img {
+                            display: inline-block;
+
+                            img {
+                                width: 60px;
+                                height: auto;
+                            }
+                        }
+
+                        .profile-location {
+                            display: inline-block;
+                            vertical-align: top;
+                            padding: 15px;
+                        }
+
+                        .profile--mood--icon {
+                            display: inline-block;
+                            vertical-align: top;
+                            padding: 15px;
+
+                            i {
+                                font-size: 30px;
+                            }
                         }
                     }
                 }
