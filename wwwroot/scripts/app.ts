@@ -6,4 +6,4 @@ require("../style/style.scss");
 var lunchService = new LunchService.LunchService();
 var moodService = new mood.MoodService();
 moodService.init();
-var test = lunchService.getLunch();
+lunchService.getLunch();

@@ -11,7 +11,7 @@ export class MoodService {
 
     updateMood(data: string) {
         var xhr = new ajax.AjaxLoader();
-        xhr.getJson("/api/mood/" +  data, this.success, this.error);   
+        xhr.postJson("/api/mood/" + data, '', this.success, this.error);
     }
 
     success() {

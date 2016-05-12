@@ -35,7 +35,7 @@ namespace TeamY.Controllers
             return _context.MoodRegistrations.Where(x => x.Registered >= DateTime.Parse(from) && x.Registered >= DateTime.Parse(to)).ToList();
         }
 
-        [HttpGet("{mood}")]
+        [HttpPost("{mood}")]
         public IActionResult Get(string mood)
         {
             var user = _context.Users.SingleOrDefault(x => x.Name == User.Identity.Name);
