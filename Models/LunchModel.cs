@@ -1,9 +1,9 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace TeamY.Domain
+namespace TeamY.Models
 {
-    public class LunchCreate
+    public class LunchModel
     {
         
         public DateTime Date { get; set; }
