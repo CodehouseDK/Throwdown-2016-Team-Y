@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
-using Microsoft.Data.Entity;
 using TeamY.Domain;
 using TeamY.Infrastructure;
+using TeamY.Models.Rest;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -14,40 +13,64 @@ namespace TeamY.Controllers
     [Route("api/[controller]")]
     public class StateController : Controller
     {
-        // GET: api/values
+        private readonly TeamyDbContext _context;
+
+        public StateController(TeamyDbContext context)
+        {
+            _context = context;
+        }
+
         [HttpGet]
-        public IEnumerable<string> Get()
+        [Route("getall")]
+        public JsonResult GetAll()
         {
-            return new string[] { "value1", "value2" };
-        }
+            IList<UserStateOutputModel> outputList = new List<UserStateOutputModel>();
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/values
-        [HttpPost]
-        public void SetCurrentState([FromBody]Guid userId, [FromBody]Guid stateId)
-        {
-            using (var context = new TeamyDbContext())
+            var userStates = _context.UserStates.Where(_ => _.Current).Select(_ => new UserStateInputModel
             {
-                context.UserStates.Add(new UserState {UserId = userId, StateId = stateId, Set = DateTime.Now});
+                UserId = _.UserId.ToString(),
+                StateId = _.StateId.ToString()
+            }).ToList();
+            
+            foreach (var item in userStates)
+            {
+                var user = _context.Users.Single(_ => _.Id.ToString() == item.UserId);
+                var state = _context.States.Single(_ => _.Id.ToString() == item.StateId);
+                outputList.Add(new UserStateOutputModel
+                {
+                    User = new User
+                    {
+                        Id = user.Id,
+                        TeamId = user.TeamId,
+                        Name = user.Name,
+                        Initials = user.Initials
+                    },
+                    State = new State
+                    {
+                        Id = state.Id,
+                        Name = state.Name
+                    }
+                });
             }
+            return Json(outputList.OrderBy(_ => _.User.Name));
         }
 
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+        [HttpPost]
+        [Route("set")]
+        public void Set([FromBody]UserStateInputModel model)
         {
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            foreach (var state in _context.UserStates.Where(_ => _.UserId == new Guid(model.UserId)))
+            {
+                state.Current = false;
+            }
+            _context.UserStates.Add(new UserState
+            {
+                UserId = new Guid(model.UserId),
+                StateId = new Guid(model.StateId),
+                Set = DateTime.Now,
+                Current = true
+            });
+            _context.SaveChanges(true);
         }
     }
 }

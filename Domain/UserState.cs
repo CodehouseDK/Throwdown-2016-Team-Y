@@ -7,5 +7,6 @@ namespace TeamY.Domain
         public Guid UserId { get; set; }
         public Guid StateId { get; set; }
         public DateTime Set { get;set;}
+        public bool Current { get; set; }
     }
 }

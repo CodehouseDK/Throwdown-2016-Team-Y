@@ -10,6 +10,7 @@ namespace TeamY.Infrastructure
             
         }
 
+        public DbSet<Team> Teams { get; set; } 
         public DbSet<User> Users { get; set; }
         public DbSet<State> States { get; set; }
         public DbSet<UserState> UserStates { get; set; }
