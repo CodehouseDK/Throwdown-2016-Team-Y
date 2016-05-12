@@ -23,7 +23,7 @@ namespace TeamY
                     .Build();
                 config.Filters.Add(new AuthorizeFilter(policy));
             });
-            services.AddSingleton<INameService, NameService>();
+            services.AddSingleton<IUserService, UserService>();
             services.AddEntityFramework()
                 .AddSqlServer()
                 .AddDbContext<TeamyDbContext>(options => options.UseSqlServer(connection));

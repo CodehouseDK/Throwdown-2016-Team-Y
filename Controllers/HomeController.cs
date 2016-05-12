@@ -7,10 +7,10 @@ namespace TeamY.Controllers
 {
     public class HomeController : Controller
     {
-        readonly INameService _nameService;
+        readonly IUserService _nameService;
         private readonly TeamyDbContext _teamyDbContext;
 
-        public HomeController(INameService nameService, TeamyDbContext teamyDbContext)
+        public HomeController(IUserService nameService, TeamyDbContext teamyDbContext)
         {
             _nameService = nameService;
             _teamyDbContext = teamyDbContext;
@@ -18,7 +18,7 @@ namespace TeamY.Controllers
 
         public IActionResult Index()
         {
-            var model = new HomeModel(_nameService.GetName());
+            var model = new HomeModel(_nameService.Current(User));
             var test = _teamyDbContext.Database.EnsureCreated();
             return View(model);
         }

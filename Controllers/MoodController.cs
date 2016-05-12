@@ -4,6 +4,7 @@ using System.Linq;
 using Microsoft.AspNet.Mvc;
 using TeamY.Domain;
 using TeamY.Infrastructure;
+using TeamY.Services;
 
 namespace TeamY.Controllers
 {
@@ -11,9 +12,11 @@ namespace TeamY.Controllers
     public class MoodController : Controller
     {
         private readonly TeamyDbContext _context;
+        private readonly IUserService _userService;
 
-        public MoodController(TeamyDbContext context)
+        public MoodController(TeamyDbContext context, IUserService userService)
         {
+            _userService = userService;
             _context = context;
         }
 
@@ -38,7 +41,7 @@ namespace TeamY.Controllers
         [HttpPost("{mood}")]
         public IActionResult Get(string mood)
         {
-            var user = _context.Users.SingleOrDefault(x => x.Name == User.Identity.Name);
+            var user = _userService.Current(User);
             if (user == null)
             {
                 return HttpNotFound();
