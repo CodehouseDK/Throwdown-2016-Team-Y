@@ -7,8 +7,8 @@
      <link rel="stylesheet" href="/style/bundle.css">
 </head>
 <body>    
-  
-        @RenderBody()
-         <script src="/scripts/bundle.js"></script>
+    @User.Identity.Name
+    @RenderBody()
+    <script src="/scripts/bundle.js"></script>
 </body>
 </html>
