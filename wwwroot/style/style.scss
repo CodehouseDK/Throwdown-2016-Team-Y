@@ -167,14 +167,36 @@ main {
                     display: inline-block;
 
                     .location {
+                        padding: 10px 0;
+
                         .title {
+                            margin-right: 10px;
+                            display: inline-block;
                             font-weight: bold;
+                        }
+
+                        .option {
+                            display: inline-block;
                         }
                     }
 
                     .mood {
+                        padding: 10px 0;
+
                         .title {
+                            margin-right: 10px;
+                            display: inline-block;
                             font-weight: bold;
+                        }
+
+                        .option {
+                            display: inline-block;
+
+                            i {
+                                margin-left: 20px;
+                                font-size: 20px;
+                                vertical-align: text-top;
+                            }
                         }
                     }
                 }
