@@ -39,7 +39,7 @@ namespace TeamY.Controllers
                     IsPersistent = false,
                     AllowRefresh = false
                 });
-            
+
             return RedirectToLocal(returnUrl);
         }
 

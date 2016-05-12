@@ -2,9 +2,13 @@
 
 @using (Html.BeginForm("Login", "Account", FormMethod.Post))
 {
+    @Html.AntiForgeryToken()
+    ;
 
-    @Html.AntiForgeryToken();
-
-    <p>User name: <input name="username" /></p>
-    <p><input type="submit" value="Login" /></p>
+    <p>
+        User name: <input name="username"/>
+    </p>
+    <p>
+        <input type="submit" value="Login"/>
+    </p>
 }
