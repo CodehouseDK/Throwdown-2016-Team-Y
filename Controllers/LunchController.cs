@@ -22,7 +22,7 @@ namespace TeamY.Controllers
         [HttpGet]
         public Lunch Get()
         {
-            return _dbContext.Lunches.FirstOrDefault();
+            return _dbContext.Lunches.FirstOrDefault(x => x.Date == DateTime.Today);
         }
         [HttpGet("{date}")]
         public Lunch Get(string date)
