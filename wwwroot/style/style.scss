@@ -2,15 +2,88 @@
 @import "mixins.scss";
 @import "icon-font.scss";
 
+$light-yellow: #faf8e9;
+$red: #bb0808;
+
+
+
+
 body {
-	background-color: #faf8e9;
-	color: #bb0808;
-	font-family:"Open Sans", sans-serif;
+    background-color: $light-yellow;
+    color: $red;
+    font-family: "Open Sans", sans-serif;
+}
+
+#wrapper {
+    width: 1024px;
+    margin: 0 auto;
 }
 header {
     .nav {
-        ul {list-style:none; margin:0;padding:0;
-            li {list-style:none; margin:0;padding:3px 10px;display:inline-block; border:1px solid red;}
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            li {
+                list-style: none;
+                margin: 0;
+                padding: 3px 10px;
+                display: inline-block;
+                background-color: $red;
+
+                a {
+                    color: white;
+                    text-decoration:none;
+                }
+            }
+        }
+    }
+}
+
+main {
+    section {
+    }
+
+    .overview {
+    }
+
+    .location {
+        @include m('settings') {
+            border: 1px solid red;
+
+            @include m('container') {
+                div {
+                    vertical-align: top;
+                }
+
+                .profile-img {
+                    display: inline-block;
+                    margin-right: 10px;
+
+                    img {
+                        display: block;
+                        width:150px;
+                        height:auto;
+                    }
+                }
+
+                .profile-settings {
+                    display: inline-block;
+
+                    .location {
+                        .title {
+                            font-weight: bold;
+                        }
+                    }
+
+                    .mood {
+                        .title {
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
         }
     }
 }
