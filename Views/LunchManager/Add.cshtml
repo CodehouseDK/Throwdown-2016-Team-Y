@@ -1,0 +1,13 @@
+﻿@model TeamY.Domain.LunchCreate
+<div>
+    <header>
+        <h1>LunchManager</h1>
+    </header>
+    <article>
+        @using (Html.BeginForm("Add", "LunchManager", Model))
+        {
+            @Html.EditorForModel(Model)
+            <input type="submit" value="Save"/>
+        }
+    </article>
+</div>

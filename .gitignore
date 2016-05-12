@@ -2,3 +2,5 @@ node_modules/*
 bundle.*
 *.lock.json
 *.suo
+/.vs/
+/node_modules/
