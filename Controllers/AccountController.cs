@@ -1,30 +1,45 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Authorization;
 using Microsoft.AspNet.Http.Authentication;
 using Microsoft.AspNet.Mvc;
+using TeamY.Infrastructure;
 
 namespace TeamY.Controllers
 {
     [AllowAnonymous]
     public class AccountController : Controller
     {
-        public IActionResult Login(string returnUrl = null)
+        private TeamyDbContext _context;
+
+        public AccountController(TeamyDbContext context)
+        {
+            _context = context;
+        }
+
+        public IActionResult Login()
         {
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(string userName, string returnUrl = null)
+        public async Task<IActionResult> Login(string userName)
         {
+            var user = _context.Users.SingleOrDefault(x => x.Initials == userName);
+            if (user == null)
+            {
+                throw new Exception("user not found");
+            }
+
             const string issuer = "https://codehouse.com";
 
             List<Claim> claims = new List<Claim>
             {
-                new Claim(ClaimTypes.Name, userName, ClaimValueTypes.String, issuer),
+                new Claim(ClaimTypes.Name, user.Name, ClaimValueTypes.String, issuer),
                 new Claim(ClaimTypes.Role, "Administrator", ClaimValueTypes.String, issuer),
             };
             var userIdentity = new ClaimsIdentity("SuperSecureLogin");
@@ -39,8 +54,8 @@ namespace TeamY.Controllers
                     IsPersistent = false,
                     AllowRefresh = false
                 });
-            
-            return RedirectToLocal(returnUrl);
+
+            return RedirectToAction("Index", "Home");
         }
 
         public IActionResult Forbidden()
@@ -52,15 +67,6 @@ namespace TeamY.Controllers
         {
             await HttpContext.Authentication.SignOutAsync("Cookie");
 
-            return RedirectToAction("Index", "Home");
-        }
-
-        private IActionResult RedirectToLocal(string returnUrl)
-        {
-            if (Url.IsLocalUrl(returnUrl))
-            {
-                return Redirect(returnUrl);
-            }
             return RedirectToAction("Index", "Home");
         }
     }

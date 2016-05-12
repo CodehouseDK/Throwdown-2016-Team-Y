@@ -1,13 +1,26 @@
-﻿@model TeamY.Domain.LunchCreate
-<div>
+﻿@model TeamY.Models.LunchModel
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Home Page";
+}
+<div id="wrapper">
     <header>
-        <h1>LunchManager</h1>
+        <div class="nav">
+            <ul>
+                <li><a href="#">LunchManager</a></li>
+            </ul>
+        </div>
     </header>
-    <article>
-        @using (Html.BeginForm("Add", "LunchManager", Model))
-        {
-            @Html.EditorForModel(Model)
-            <input type="submit" value="Save"/>
-        }
-    </article>
+    <main>
+        <section class="overview">
+            <div class="lunch--table">
+                @using (Html.BeginForm("Add", "LunchManager", Model))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.EditorForModel(Model)
+                    <input type="submit" value="Save" />
+                }
+            </div>
+        </section>
+    </main>
 </div>

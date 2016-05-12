@@ -7,8 +7,9 @@ namespace TeamY.Controllers
 {
     public class HomeController : Controller
     {
-        INameService _nameService;
-        private TeamyDbContext _teamyDbContext;
+        readonly INameService _nameService;
+        private readonly TeamyDbContext _teamyDbContext;
+
         public HomeController(INameService nameService, TeamyDbContext teamyDbContext)
         {
             _nameService = nameService;
@@ -21,7 +22,5 @@ namespace TeamY.Controllers
             var test = _teamyDbContext.Database.EnsureCreated();
             return View(model);
         }
-
-       
     }
 }

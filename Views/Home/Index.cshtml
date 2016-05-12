@@ -1,30 +1,89 @@
 ﻿@{
     Layout = "/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = "Home Page";   
+    ViewBag.Title = "Home Page";
 }
 
 @model TeamY.Models.HomeModel
 <div id="wrapper">
     <header>
+        <i class="icon-codehouse"></i>
         <div class="nav">
             <ul>
-                <li>Codehouse</li>
-                <li>Team 1</li>
-                <li>Team 2</li>
-                <li>Team 3</li>
-                <li>Team 4</li>
+                <li><a href="#">Codehouse<i class="icon-codehouse"></i></a></li>
+                <li><a href="#">Galaxy<i class="icon-galaxy"></i></a></li>
+                <li><a href="#">Pandora<i class="icon-pandora"></i></a></li>
+                <li><a href="#">LEGO<i class="icon-lego"></i></a></li>
+                <li><a href="#">Admin<i class="icon-business"></i></a></li>
+
             </ul>
         </div>
     </header>
     <main>
+        <!-- BEGIN: Overview -->
         <section class="overview">
-            <div class="location--table"></div>
-            <div class="mood--table"></div>
-            <div class="lunch--table"></div>
+            <div class="location--table">
+                <div class="location-stats">
+                    <h2>Location</h2>
+                    <div class="data-list">
+                        <ul>
+                            <!--BEGIN Location -->
+                            <li>
+                                <div class="location--icon">
+                                    <i class="icon-business"></i>
+                                </div>
+                                <div class="location--title">Meeting</div>
+                                <div class="location-count">10</div>
+                            </li>
+                            <!--END Profile -->
+                            <!--BEGIN Location -->
+                            <li>
+                                <div class="location--icon">
+                                    <i class="icon-lunch"></i>
+                                </div>
+                                <div class="location--title">Lunch</div>
+                                <div class="location-count">3</div>
+                            </li>
+                            <!--END Profile --> <!--BEGIN Location -->
+                            <li>
+                                <div class="location--icon">
+                                    <i class="icon-home"></i>
+                                </div>
+                                <div class="location--title">Home</div>
+                                <div class="location-count">2</div>
+                            </li>
+                            <!--END Profile -->
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            <div class="mood--table">
+                <div class="mood-stats">
+                    <h2>Mood</h2>
+                    <div class="mood-icon">
+                        <i class="icon-happy"></i>
+                    </div>
+                    <div class="mood-data">
+                        52%
+                    </div>
+                </div>
+            </div>
+            <div class="lunch--table">
+                <div class="lunch-stats">
+                    <h2>Todays lunch</h2>
+                    <div class="lunch-content" id="lunch-content">
+                    </div>
+                    <i class="icon-lunch"></i> @Html.ActionLink("Manage", "Index", "LunchManager")
+                </div>
+            </div>
         </section>
+        <!-- END: Overview -->
+        <!-- BEGIN: Location settings -->
         <section class="location--settings">
             <div class="location--settings--container">
-                <div class="profile-img"> <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=200%C3%97200&w=200&h=200" alt=""> </div>
+                <div class="profile-img">
+                    <img src="http://www.codehouse.com/~/media/Codehouse/240x240/240x240-Martin-P.ashx" alt="">
+                </div>
                 <div class="profile-settings">
                     <div class="location">
                         <div class="title">Status</div>
@@ -43,29 +102,93 @@
                                 <option value="happy" data-image="/img/icons/happy.png">Happy</option>
                                 <option value="not happy" data-image="/img/icons/nothappy.png">Not Happy</option>
                             </select>
+                            <i class="icon-mad"></i>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- END: Location settings -->
+        <!-- BEGIN: Mood stats -->
         <section class="mood--stats">
             <div class="mood--stats--container">
                 <div class="data-list">
                     <ul>
+                        <!--BEGIN Profile -->
                         <li>
-                            <div class="profile-img"><img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=200%C3%97200&w=200&h=200" alt=""></div>
-                            <div class="profile--mood--icon"></div>
+                            <div class="profile-img">
+                                <img src="http://www.codehouse.com/~/media/Codehouse/240x240/240x240-Martin-P.ashx" alt="">
+                            </div>
+                            <div class="profile--mood--icon">
+                                <i class="icon-okay"></i>
+                            </div>
                         </li>
+                        <!--END Profile -->
+                        <!--BEGIN Profile -->
+                        <li>
+                            <div class="profile-img">
+                                <img src="http://www.codehouse.com/~/media/Codehouse/240x240/240x240-Martin-P.ashx" alt="">
+                            </div>
+                            <div class="profile--mood--icon">
+                                <i class="icon-good"></i>
+                            </div>
+                        </li>
+                        <!--END Profile -->
+                        <!--BEGIN Profile -->
+                        <li>
+                            <div class="profile-img">
+                                <img src="http://www.codehouse.com/~/media/Codehouse/240x240/240x240-Martin-P.ashx" alt="">
+                            </div>
+                            <div class="profile--mood--icon">
+                                <i class="icon-clever"></i>
+                            </div>
+                        </li>
+                        <!--END Profile -->
                     </ul>
                 </div>
             </div>
         </section>
+        <!-- END: Mood stats -->
+        <!-- BEGIN: Location stats -->
         <section class="location--details">
             <div class="location--details--container">
-                <ul>
-                    <li>
-                    </li>
-                </ul>
+                <div class="data-list">
+                    <ul>
+                        <!--BEGIN Profile -->
+                        <li>
+                            <div class="profile-img">
+                                <img src="http://www.codehouse.com/~/media/Codehouse/240x240/240x240-Martin-P.ashx" alt="">
+                            </div>
+                            <div class="profile-location">Work</div>
+                            <div class="profile--mood--icon">
+                                <i class="icon-neutral"></i>
+                            </div>
+                        </li>
+                        <!--END Profile -->
+                        <!--BEGIN Profile -->
+                        <li>
+                            <div class="profile-img">
+                                <img src="http://www.codehouse.com/~/media/Codehouse/240x240/240x240-Martin-P.ashx" alt="">
+                            </div>
+                            <div class="profile-location">Work</div>
+                            <div class="profile--mood--icon">
+                                <i class="icon-stressed"></i>
+                            </div>
+                        </li>
+                        <!--END Profile -->
+                        <!--BEGIN Profile -->
+                        <li>
+                            <div class="profile-img">
+                                <img src="http://www.codehouse.com/~/media/Codehouse/240x240/240x240-Martin-P.ashx" alt="">
+                            </div>
+                            <div class="profile-location">Work</div>
+                            <div class="profile--mood--icon">
+                                <i class="icon-yelling"></i>
+                            </div>
+                        </li>
+                        <!--END Profile -->
+                    </ul>
+                </div>
             </div>
         </section>
         <section class="mood--details"></section>

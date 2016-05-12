@@ -1,15 +1,317 @@
 @import "normalize.scss";
 @import "mixins.scss";
+@import "icon-font.scss";
+
+$light-yellow: #faf8e9;
+$red: #bb0808;
+
+
+
 
 body {
-	background-color: #faf8e9;
-	color: #bb0808;
-	font-family:"Open Sans", sans-serif;
+    background-color: $light-yellow;
+    color: $red;
+    font-family: "Open Sans", sans-serif;
 }
+.login {
+    display: inline;
+    float: right;
+    margin-right: 20px;
+}
+#wrapper {
+    width: 1024px;
+    margin: 0 auto;
+}
+
 header {
+    .icon-codehouse {
+        font-size: 40px;
+    }
+
     .nav {
-        ul {list-style:none; margin:0;padding:0;
-            li {list-style:none; margin:0;padding:3px 10px;display:inline-block; border:1px solid red;}
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            li {
+                list-style: none;
+                margin: 0;
+                padding: 6px 14px;
+                display: inline-block;
+                background-color: $red;
+                border-radius: 2px;
+
+                &:hover {
+                    -webkit-box-shadow: inset 11px 10px 14px -9px rgba(0,0,0,0.45);
+                    -moz-box-shadow: inset 11px 10px 14px -9px rgba(0,0,0,0.45);
+                    box-shadow: inset 11px 10px 14px -9px rgba(0,0,0,0.45);
+                }
+
+                a {
+                    color: white;
+                    text-decoration: none;
+
+                    i {
+                        font-size: 21px;
+                        margin-left: 10px;
+                        vertical-align: sub;
+                    }
+                }
+            }
+        }
+    }
+}
+
+main {
+    section {
+    }
+
+    .overview {
+        .location--table {
+            width: 45%;
+            display: inline-block;
+            vertical-align: top;
+            padding: 10px;
+            margin: 12px 0;
+            border: 1px dotted $red;
+            -webkit-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.5);
+            -moz-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.5);
+            box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.5);
+
+            .location-stats {
+                .data-list {
+                    ul {
+                        list-style: none;
+                        margin: 0;
+                        padding: 0;
+
+                        li {
+                            list-style: none;
+
+                            .location--icon {
+                                display: inline-block;
+                                vertical-align: top;
+                                padding: 15px;
+
+                                i {
+                                    font-size: 30px;
+                                }
+                            }
+                        }
+
+                        .location--title {
+                            display: inline-block;
+                            vertical-align: top;
+                            padding: 15px;
+                        }
+
+                        .location-count {
+                            display: inline-block;
+                            vertical-align: top;
+                            padding: 15px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .mood--table {
+            width: 45%;
+            display: inline-block;
+            vertical-align: top;
+            padding: 10px;
+            margin: 12px 0;
+            border: 1px dotted $red;
+            -webkit-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.5);
+            -moz-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.5);
+            box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.5);
+
+            .mood-stats {
+                .mood-icon {
+                    display: inline-block;
+                    width: 45%;
+                    text-align: center;
+
+                    i {
+                        font-size: 96px;
+                    }
+                }
+
+                .mood-data {
+                    display: inline-block;
+                    width: 45%;
+                    font-size: 115px;
+                }
+            }
+        }
+
+        .lunch--table {
+            width: 45%;
+            display: inline-block;
+            vertical-align: top;
+            padding: 10px;
+            margin: 12px 0;
+            border: 1px dotted $red;
+            -webkit-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.5);
+            -moz-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.5);
+            box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.5);
+        }
+    }
+
+    .location {
+        @include m('settings') {
+            padding: 10px;
+            margin: 12px 0;
+            border: 1px dotted $red;
+            -webkit-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.5);
+            -moz-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.5);
+            box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.5);
+
+            @include m('container') {
+                div {
+                    vertical-align: top;
+                }
+
+                .profile-img {
+                    display: inline-block;
+                    margin-right: 10px;
+
+                    img {
+                        display: block;
+                        width: 150px;
+                        height: auto;
+                    }
+                }
+
+                .profile-settings {
+                    display: inline-block;
+
+                    .location {
+                        padding: 10px 0;
+
+                        .title {
+                            margin-right: 10px;
+                            display: inline-block;
+                            font-weight: bold;
+                        }
+
+                        .option {
+                            display: inline-block;
+                        }
+                    }
+
+                    .mood {
+                        padding: 10px 0;
+
+                        .title {
+                            margin-right: 10px;
+                            display: inline-block;
+                            font-weight: bold;
+                        }
+
+                        .option {
+                            display: inline-block;
+
+                            i {
+                                margin-left: 20px;
+                                font-size: 20px;
+                                vertical-align: text-top;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .mood--stats {
+        padding: 10px;
+        margin: 12px 0;
+        border: 1px dotted $red;
+        -webkit-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.5);
+        -moz-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.5);
+        box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.5);
+
+        .mood--stats--container {
+            .data-list {
+                ul {
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+
+                    li {
+                        list-style: none;
+
+                        .profile-img {
+                            display: inline-block;
+
+                            img {
+                                width: 60px;
+                                height: auto;
+                            }
+                        }
+
+                        .profile--mood--icon {
+                            display: inline-block;
+                            vertical-align: top;
+                            padding: 15px;
+
+                            i {
+                                font-size: 30px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .location--details {
+        padding: 10px;
+        margin: 12px 0;
+        border: 1px dotted $red;
+        -webkit-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.5);
+        -moz-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.5);
+        box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.5);
+
+        .location--details--container {
+            .data-list {
+                ul {
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+
+                    li {
+                        list-style: none;
+
+                        .profile-img {
+                            display: inline-block;
+
+                            img {
+                                width: 60px;
+                                height: auto;
+                            }
+                        }
+
+                        .profile-location {
+                            display: inline-block;
+                            vertical-align: top;
+                            padding: 15px;
+                        }
+
+                        .profile--mood--icon {
+                            display: inline-block;
+                            vertical-align: top;
+                            padding: 15px;
+
+                            i {
+                                font-size: 30px;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
