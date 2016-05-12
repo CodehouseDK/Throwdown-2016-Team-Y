@@ -12,11 +12,15 @@
         </div>
     </header>
     <main>
-        @using (Html.BeginForm("Add", "LunchManager", Model))
-        {
-            @Html.AntiForgeryToken()
-            @Html.EditorForModel(Model)
-            <input type="submit" value="Save" />
-        }
+        <section class="overview">
+            <div class="lunch--table">
+                @using (Html.BeginForm("Add", "LunchManager", Model))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.EditorForModel(Model)
+                    <input type="submit" value="Save" />
+                }
+            </div>
+        </section>
     </main>
 </div>

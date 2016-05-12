@@ -13,12 +13,16 @@
         </div>
     </header>
     <main>
-        @Html.ActionLink("Add new", "Add")
-        <ul>
-            @foreach (var lunch in Model)
-            {
-                <li>@lunch.Date.ToLongDateString() @Html.ActionLink("Delete", "Delete", new { id = lunch.Id })</li>
-            }
-        </ul>
+        <section class="overview">
+            <div class="lunch--table">
+                @Html.ActionLink("Add new", "Add")
+                <ul>
+                    @foreach (var lunch in Model)
+                    {
+                        <li>@lunch.Date.ToLongDateString() @Html.ActionLink("Delete", "Delete", new { id = lunch.Id })</li>
+                    }
+                </ul>
+            </div>
+        </section>
     </main>
 </div>

@@ -13,11 +13,15 @@
         </div>
     </header>
     <main>
-        <h1>Delete</h1>
-        @using (Html.BeginForm("Delete", "LunchManager", Model))
-        {
-            @Html.DisplayForModel()
-            <p> Really delete? <input type="submit" value="Yes" /> @Html.ActionLink("No", "Index")</p>
-        }
+        <section class="overview">
+            <div class="lunch--table">
+                <h1>Delete</h1>
+                @using (Html.BeginForm("Delete", "LunchManager", Model))
+                {
+                @Html.DisplayForModel()
+                <p> Really delete? <input type="submit" value="Yes" /> @Html.ActionLink("No", "Index")</p>
+                }
+            </div>
+        </section>
     </main>
 </div>
