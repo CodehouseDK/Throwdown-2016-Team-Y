@@ -2,10 +2,10 @@ import test = require("../Loader/AjaxLoader");
 
 export interface ILunchDto
 {
-	Id: String;
+	Id: string;
 	Date: Date;
-	Menu: String;
-	ImageSrc: String;
+	Menu: string;
+	ImageSrc: string;
 }
 
 
@@ -17,7 +17,7 @@ export class LunchService {
 	}
 
 	success(jsonResult: ILunchDto) {
-		console.log(jsonResult);
+		document.getElementById("lunch-content").innerHTML = jsonResult.Menu;
 	}
 
 	error(error: String, statusCode: Number) {

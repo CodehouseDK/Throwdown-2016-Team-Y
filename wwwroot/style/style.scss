@@ -13,13 +13,21 @@ body {
     color: $red;
     font-family: "Open Sans", sans-serif;
 }
-
+.login {
+    display: inline;
+    float: right;
+    margin-right: 20px;
+}
 #wrapper {
     width: 1024px;
     margin: 0 auto;
 }
 
 header {
+    .icon-codehouse {
+        font-size: 40px;
+    }
+
     .nav {
         ul {
             list-style: none;
@@ -29,13 +37,19 @@ header {
             li {
                 list-style: none;
                 margin: 0;
-                padding: 3px 10px;
+                padding: 6px 14px;
                 display: inline-block;
                 background-color: $red;
 
                 a {
                     color: white;
                     text-decoration: none;
+
+                    i {
+                        font-size: 21px;
+                        margin-left: 10px;
+                        vertical-align: sub;
+                    }
                 }
             }
         }

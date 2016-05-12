@@ -7,7 +7,7 @@ var LunchService = (function () {
         xhr.getJson("/api/lunch", this.success, this.error);
     };
     LunchService.prototype.success = function (jsonResult) {
-        alert(jsonResult.Menu);
+        console.log(jsonResult);
     };
     LunchService.prototype.error = function (error, statusCode) {
         alert("error");
