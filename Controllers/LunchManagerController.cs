@@ -33,9 +33,13 @@ namespace TeamY.Controllers
         [HttpPost]
         public IActionResult Add([Bind] LunchCreate lunchCreate)
         {
-            if ((lunchCreate.Menu == null && lunchCreate.ImageSrc == null))
+            if (string.IsNullOrEmpty(lunchCreate.Menu) && string.IsNullOrEmpty(lunchCreate.ImageSrc))
             {
-                RedirectToAction("Add", lunchCreate);
+                return RedirectToAction("Add", lunchCreate);
+            }
+            if (lunchCreate.Date <= DateTime.Today.AddYears(-1))
+            {
+                return RedirectToAction("Add", lunchCreate);
             }
             var lunch = new Lunch() { Date = lunchCreate.Date, Id = Guid.NewGuid(), Menu = lunchCreate.Menu, ImageSrc = lunchCreate.ImageSrc };
             _dbContext.Lunches.Add(lunch);

@@ -22,7 +22,16 @@ namespace TeamY
         public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddConsole();
-            
+
+            app.UseCookieAuthentication(options =>
+            {
+                options.AuthenticationScheme = "Cookie";
+                options.LoginPath = new PathString("/Account/Login/");
+                options.AccessDeniedPath = new PathString("/Account/Forbidden/");
+                options.AutomaticAuthenticate = true;
+                options.AutomaticChallenge = true;
+            });
+
             app.UseIISPlatformHandler();
             
             app.UseDeveloperExceptionPage();

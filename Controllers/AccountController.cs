@@ -11,16 +11,21 @@ namespace TeamY.Controllers
     [AllowAnonymous]
     public class AccountController : Controller
     {
-        public async Task<IActionResult> Unauthorized(string returnUrl = null)
+        public IActionResult Login(string returnUrl = null)
         {
-            const string Issuer = "https://contoso.com";
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Login(string userName, string returnUrl = null)
+        {
+            const string issuer = "https://codehouse.com";
 
             List<Claim> claims = new List<Claim>
             {
-                new Claim(ClaimTypes.Name, "hgh", ClaimValueTypes.String, Issuer),
-                new Claim(ClaimTypes.Role, "Administrator", ClaimValueTypes.String, Issuer),
-                //new Claim("EmployeeId", "123", ClaimValueTypes.String, Issuer),
-                //new Claim(ClaimTypes.DateOfBirth, "1970-06-08", ClaimValueTypes.Date),
+                new Claim(ClaimTypes.Name, userName, ClaimValueTypes.String, issuer),
+                new Claim(ClaimTypes.Role, "Administrator", ClaimValueTypes.String, issuer),
             };
             var userIdentity = new ClaimsIdentity("SuperSecureLogin");
             userIdentity.AddClaims(claims);
@@ -34,7 +39,7 @@ namespace TeamY.Controllers
                     IsPersistent = false,
                     AllowRefresh = false
                 });
-
+            
             return RedirectToLocal(returnUrl);
         }
 
@@ -43,16 +48,20 @@ namespace TeamY.Controllers
             return View();
         }
 
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.Authentication.SignOutAsync("Cookie");
+
+            return RedirectToAction("Index", "Home");
+        }
+
         private IActionResult RedirectToLocal(string returnUrl)
         {
             if (Url.IsLocalUrl(returnUrl))
             {
                 return Redirect(returnUrl);
             }
-            else
-            {
-                return RedirectToAction("Index", "Home");
-            }
+            return RedirectToAction("Index", "Home");
         }
     }
 }
