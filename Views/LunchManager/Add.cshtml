@@ -6,6 +6,7 @@
     <article>
         @using (Html.BeginForm("Add", "LunchManager", Model))
         {
+            @Html.AntiForgeryToken()
             @Html.EditorForModel(Model)
             <input type="submit" value="Save"/>
         }
