@@ -40,6 +40,13 @@ header {
                 padding: 6px 14px;
                 display: inline-block;
                 background-color: $red;
+                border-radius: 2px;
+
+                &:hover {
+                    -webkit-box-shadow: inset 11px 10px 14px -9px rgba(0,0,0,0.45);
+                    -moz-box-shadow: inset 11px 10px 14px -9px rgba(0,0,0,0.45);
+                    box-shadow: inset 11px 10px 14px -9px rgba(0,0,0,0.45);
+                }
 
                 a {
                     color: white;
