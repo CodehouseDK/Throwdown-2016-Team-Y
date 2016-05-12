@@ -11,14 +11,14 @@ namespace TeamY.Controllers
     [AllowAnonymous]
     public class AccountController : Controller
     {
-        public IActionResult Login(string returnUrl = null)
+        public IActionResult Login()
         {
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(string userName, string returnUrl = null)
+        public async Task<IActionResult> Login(string userName)
         {
             const string issuer = "https://codehouse.com";
 
@@ -40,7 +40,7 @@ namespace TeamY.Controllers
                     AllowRefresh = false
                 });
 
-            return RedirectToLocal(returnUrl);
+            return RedirectToAction("Index", "Home");
         }
 
         public IActionResult Forbidden()
@@ -52,15 +52,6 @@ namespace TeamY.Controllers
         {
             await HttpContext.Authentication.SignOutAsync("Cookie");
 
-            return RedirectToAction("Index", "Home");
-        }
-
-        private IActionResult RedirectToLocal(string returnUrl)
-        {
-            if (Url.IsLocalUrl(returnUrl))
-            {
-                return Redirect(returnUrl);
-            }
             return RedirectToAction("Index", "Home");
         }
     }
