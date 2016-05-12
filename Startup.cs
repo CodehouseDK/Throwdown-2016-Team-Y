@@ -19,14 +19,14 @@ namespace TeamY
             services.AddMvc(config =>
             {
                 var policy = new AuthorizationPolicyBuilder()
-                                 .RequireAuthenticatedUser()
-                                 .Build();
+                    .RequireAuthenticatedUser()
+                    .Build();
                 config.Filters.Add(new AuthorizeFilter(policy));
             });
             services.AddSingleton<INameService, NameService>();
             services.AddEntityFramework()
-               .AddSqlServer()
-               .AddDbContext<TeamyDbContext>(options => options.UseSqlServer(connection));
+                .AddSqlServer()
+                .AddDbContext<TeamyDbContext>(options => options.UseSqlServer(connection));
         }
 
         public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
@@ -43,13 +43,12 @@ namespace TeamY
             });
 
             app.UseIISPlatformHandler();
-            
+
             app.UseDeveloperExceptionPage();
 
             app.UseMvcWithDefaultRoute();
-            
+
             app.UseStaticFiles();
-            
         }
     }
 }

@@ -1,0 +1,86 @@
+﻿@font-face {
+    font-family: 'hack-icon-font';
+    src:
+        url('/build/fonts/hack-icon-font.ttf') format('truetype'),
+        url('/build/fonts/hack-icon-font.woff') format('woff'),
+        url('/build/fonts/hack-icon-font.svg#hack-icon-font') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'hack-icon-font' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-business:before {
+    content: "\e900";
+}
+.icon-galaxy:before {
+    content: "\e901";
+}
+.icon-lego:before {
+    content: "\e902";
+}
+.icon-lunch:before {
+    content: "\e903";
+}
+.icon-cross:before {
+    content: "\e90e";
+}
+.icon-arrow-down:before {
+    content: "\e926";
+}
+.icon-arrow-right:before {
+    content: "\e927";
+}
+.icon-arrow-left:before {
+    content: "\e928";
+}
+.icon-arrow-up:before {
+    content: "\e929";
+}
+.icon-burger:before {
+    content: "\e92a";
+}
+.icon-emoticons-07:before {
+    content: "\e92b";
+}
+.icon-emoticons-03:before {
+    content: "\e92c";
+}
+.icon-emoticons-09:before {
+    content: "\e92d";
+}
+.icon-emoticons-10:before {
+    content: "\e92e";
+}
+.icon-emoticons-06:before {
+    content: "\e92f";
+}
+.icon-emoticons-08:before {
+    content: "\e930";
+}
+.icon-emoticons-05:before {
+    content: "\e931";
+}
+.icon-emoticons-02:before {
+    content: "\e932";
+}
+.icon-emoticons-04:before {
+    content: "\e933";
+}
+.icon-emoticons-01:before {
+    content: "\e935";
+}
+
