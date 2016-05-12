@@ -1,0 +1,8 @@
+﻿@model TeamY.Domain.Lunch
+
+<h1>Delete</h1>
+@using (Html.BeginForm("Delete", "LunchManager", Model))
+{
+    @Html.DisplayForModel()
+    <p> Really delete? <input type="submit" value="Yes"/> @Html.ActionLink("No", "Index")</p>
+}

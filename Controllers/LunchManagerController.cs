@@ -45,5 +45,22 @@ namespace TeamY.Controllers
             _dbContext.Lunches.Add(lunch);
             return Ok(_dbContext.SaveChanges());
         }
+
+        public IActionResult Delete(Guid id)
+        {
+            var lunch = _dbContext.Lunches.FirstOrDefault(x => x.Id == id);
+            if (lunch == null)
+            {
+                return RedirectToAction("Index");
+            }
+            return View("Delete", lunch);
+        }
+
+        [HttpPost]
+        public IActionResult Delete([Bind] Lunch lunch)
+        {
+            _dbContext.Lunches.Remove(lunch);
+            return Ok(_dbContext.SaveChanges());
+        }
     }
 }
