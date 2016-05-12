@@ -1,4 +1,7 @@
+using Microsoft.AspNet.Authorization;
 using Microsoft.AspNet.Builder;
+using Microsoft.AspNet.Http;
+using Microsoft.AspNet.Mvc.Filters;
 using Microsoft.Data.Entity;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -12,7 +15,14 @@ namespace TeamY
         public void ConfigureServices(IServiceCollection services)
         {
             var connection = @"Data Source=DK-SQL2014;Initial Catalog=Hackathon.TeamY;User ID=teamy;Password=teamgalaxy;";
-            services.AddMvc();
+            services.AddAuthorization();
+            services.AddMvc(config =>
+            {
+                var policy = new AuthorizationPolicyBuilder()
+                                 .RequireAuthenticatedUser()
+                                 .Build();
+                config.Filters.Add(new AuthorizeFilter(policy));
+            });
             services.AddSingleton<INameService, NameService>();
             services.AddEntityFramework()
                .AddSqlServer()
