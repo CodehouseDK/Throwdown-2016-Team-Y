@@ -39,7 +39,7 @@ namespace TeamY.Controllers
 
             List<Claim> claims = new List<Claim>
             {
-                new Claim(ClaimTypes.Name, user.Name, ClaimValueTypes.String, issuer),
+                new Claim(ClaimTypes.Name, user.Initials, ClaimValueTypes.String, issuer),
                 new Claim(ClaimTypes.Role, "Administrator", ClaimValueTypes.String, issuer),
             };
             var userIdentity = new ClaimsIdentity("SuperSecureLogin");

@@ -6,7 +6,10 @@ namespace TeamY.Models
     {
         public HomeModel(User user)
         {
-            Name = user.Name;
+            if (user != null)
+            {
+                Name = user.Name;
+            }
         }
 
         public string Name { get; }
