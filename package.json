@@ -6,7 +6,7 @@
   "scripts": {   
     "build": "webpack"
   },
-  "author": "Team X",
+  "author": "Team Y",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^6.3.4",
