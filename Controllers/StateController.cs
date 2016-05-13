@@ -41,9 +41,12 @@ namespace TeamY.Controllers
         public JsonResult GetForUser()
         {
             var userId = _userService.Current(User).Id;
-            var stateId = _context.UserStates.Single(_ => _.Current && _.UserId == userId).StateId;
-            var state = _context.States.Single(_ => _.Id == stateId);
-            var output = new StateModel
+            var userState = _context.UserStates.SingleOrDefault(_ => _.Current && _.UserId == userId);
+            var stateId = userState?.StateId;
+            var state = _context.States.SingleOrDefault(_ => _.Id == stateId);
+            var output = state == null 
+            ? new StateModel()
+            : new StateModel
             {
                 Id = state.Id,
                 Name = state.Name

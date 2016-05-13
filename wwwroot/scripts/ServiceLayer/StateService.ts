@@ -33,9 +33,7 @@ class Option {
 
 export class StateListService {
 
-    private me = this;
     init() {
-        alert("stateinit");
         this.populateStateCombo();
         var selector = <HTMLSelectElement>document.getElementById("updateStatus");
         selector.onchange = () => {
@@ -71,6 +69,9 @@ export class StateListService {
 
     singleStateSuccess(jsonResult: IStateDto) {
         var selector = <HTMLSelectElement>document.getElementById("updateStatus");
+        if (jsonResult.Name === undefined || jsonResult.Name === null) {
+            return;
+        }
         selector.value = jsonResult.Id;
     }
 
