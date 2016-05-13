@@ -569,10 +569,20 @@ main {
                         .profile-location {
                             display: inline-block;
                             vertical-align: top;
-                            padding: 15px;
+                            padding: 17px 15px 0 0;
                         }
 
                         .profile--mood--icon {
+                            display: inline-block;
+                            vertical-align: top;
+                            padding: 15px;
+
+                            i {
+                                font-size: 30px;
+                            }
+                        }
+
+                        .profile-location--icon {
                             display: inline-block;
                             vertical-align: top;
                             padding: 15px;
