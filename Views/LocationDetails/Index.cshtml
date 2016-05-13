@@ -1,0 +1,16 @@
+﻿@model TeamY.Models.HomeModel
+
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Info Page";
+}
+
+<div id="wrapper">
+
+    <main>
+        <section class="location--details">
+            @Html.Partial("_LocationDetails", Model.LocationDetails)
+        </section>
+    </main>
+    <footer></footer>
+</div> 
