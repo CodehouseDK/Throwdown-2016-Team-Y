@@ -36,7 +36,8 @@ namespace TeamY.Services
                         User = user.Name,
                         UserImage = $"/images/employees/{user.Initials}.jpg",
                         Mood = user.Mood ?? "happy",
-                        State = currentState.Name
+                        State = currentState.Name,
+                        StateClass = currentState.IconClass
                     };
                     locations.Add(location);
                 }

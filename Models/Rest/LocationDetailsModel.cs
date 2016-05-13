@@ -12,5 +12,6 @@ namespace TeamY.Models.Rest
         public string Team { get; set; }
         public string User { get; set; }
         public string UserImage { get; set; }
+        public string StateClass { get; set; }
     }
 }
