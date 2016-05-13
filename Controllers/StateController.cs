@@ -6,6 +6,7 @@ using Microsoft.AspNet.Mvc;
 using TeamY.Domain;
 using TeamY.Infrastructure;
 using TeamY.Models.Rest;
+using TeamY.Services;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -15,10 +16,12 @@ namespace TeamY.Controllers
     public class StateController : Controller
     {
         private readonly TeamyDbContext _context;
+        private readonly IUserService _userService;
 
-        public StateController(TeamyDbContext context)
+        public StateController(TeamyDbContext context, IUserService userService)
         {
             _context = context;
+            _userService = userService;
         }
 
         [HttpGet]
@@ -33,14 +36,28 @@ namespace TeamY.Controllers
             return Json(output);
         }
 
-
+        [HttpGet]
+        [Route("getforuser")]
+        public JsonResult GetForUser()
+        {
+            var userId = _userService.Current(User).Id;
+            var stateId = _context.UserStates.Single(_ => _.Current && _.UserId == userId).StateId;
+            var state = _context.States.Single(_ => _.Id == stateId);
+            var output = new StateModel
+            {
+                Id = state.Id,
+                Name = state.Name
+            };
+            return Json(output);
+        } 
+        
         [HttpGet]
         [Route("getoverview")]
         public JsonResult GetOverview()
         {
             IList<UserStateOutputModel> outputList = new List<UserStateOutputModel>();
 
-            var userStates = _context.UserStates.Where(_ => _.Current).Select(_ => new UserStateInputModel
+            var userStates = _context.UserStates.Where(_ => _.Current).Select(_ => new UserStateModel
             {
                 UserId = _.UserId.ToString(),
                 StateId = _.StateId.ToString()
@@ -93,15 +110,16 @@ namespace TeamY.Controllers
 
         [HttpPost]
         [Route("set")]
-        public void Set([FromBody]UserStateInputModel model)
+        public void Set([FromBody]UserStateModel model)
         {
-            foreach (var state in _context.UserStates.Where(_ => _.UserId == new Guid(model.UserId)))
+            var userId = _userService.Current(User).Id;
+            foreach (var state in _context.UserStates.Where(_ => _.UserId == userId))
             {
                 state.Current = false;
             }
             _context.UserStates.Add(new UserState
             {
-                UserId = new Guid(model.UserId),
+                UserId = userId,
                 StateId = new Guid(model.StateId),
                 Set = DateTime.Now,
                 Current = true

@@ -18,5 +18,7 @@ namespace TeamY.Services
         {
             return _context.Users.SingleOrDefault(x => x.Initials == user.Identity.Name);
         }
+
+        
     }
 }
