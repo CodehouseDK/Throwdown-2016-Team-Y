@@ -19,6 +19,6 @@ export class MoodService {
     }
 
     error(error: String, statusCode: Number) {
-        console.log(error);
+        console.error(error);
     }
 }

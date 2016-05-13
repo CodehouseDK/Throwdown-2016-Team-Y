@@ -86,7 +86,7 @@ export class StateListService {
     }
 
     error(error: String, statusCode: Number) {
-        alert("error");
+        console.error(error);
     }
 }
 
@@ -101,6 +101,6 @@ export class StateOverviewService {
     }
 
     error(error: String, statusCode: Number) {
-        alert("error");
+        console.error(error);
     }
 }

@@ -21,7 +21,6 @@ export class LunchService {
 	}
 
 	error(error: String, statusCode: Number) {
-		alert("error");
+        console.error(error);
 	}
-
 }
