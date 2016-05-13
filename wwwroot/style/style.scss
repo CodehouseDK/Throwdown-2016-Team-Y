@@ -454,7 +454,11 @@ main {
 
                     select {
                         width: 210px;
-                        option {text-transform:capitalize;}
+                        text-transform: capitalize;
+
+                        option {
+                            text-transform: capitalize;
+                        }
                     }
 
                     i {
