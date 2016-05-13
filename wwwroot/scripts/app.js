@@ -9,6 +9,6 @@ moodService.init();
 lunchService.getLunch();
 var stateListService = new state.StateListService();
 stateListService.init();
-var stateOverviewListService = new state.StateOverviewService();
-stateOverviewListService.init();
+var stateAggregateService = new state.StateAggregateService();
+stateAggregateService.init();
 //# sourceMappingURL=app.js.map

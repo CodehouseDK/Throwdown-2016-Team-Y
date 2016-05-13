@@ -9,6 +9,7 @@ export interface IStateAggregateDto {
     Id: string;
     Name: string;
     Count: number;
+    IconClass: string;
 }
 
 class UserStateDto {
@@ -23,11 +24,36 @@ class UserStateDto {
 
 class Option {
     element: HTMLOptionElement;
+    
 
     constructor(dto: IStateDto) {
         this.element = document.createElement("option");
         this.element.value = dto.Id.toString();
         this.element.innerText = dto.Name;
+    }
+}
+
+class AggregateElement {
+    listElement: HTMLLIElement;
+    iconElement: HTMLElement;
+    countElement: HTMLSpanElement;
+    titleElement: HTMLSpanElement;
+
+    constructor(dto: IStateAggregateDto) {
+        this.listElement = document.createElement("li");
+
+        this.iconElement = document.createElement("i");
+        this.iconElement.className = dto.IconClass;
+        
+        this.countElement = document.createElement("span");
+        this.countElement.innerText = dto.Count.toString();
+
+        this.titleElement = document.createElement("span");
+        this.titleElement.innerText = dto.Name;
+
+        this.listElement.appendChild(this.iconElement);
+        this.listElement.appendChild(this.titleElement);
+        this.listElement.appendChild(this.countElement);
     }
 }
 
@@ -82,6 +108,7 @@ export class StateListService {
     }
 
     changeSuccess() {
+        new StateAggregateService().init();
         return true;
     }
 
@@ -126,10 +153,18 @@ export class StateAggregateService {
     }
     
     success(jsonResult: Array<IStateAggregateDto>) {
+        var unorderedList = document.getElementById("location-list");
+        //empty
+        while (unorderedList.firstChild) {
+            unorderedList.removeChild(unorderedList.firstChild);
+        }
+        //populate
         var length = jsonResult.length;
         for (var i = 0; i < length; i += 1) {
             var item = jsonResult[i];
             console.log(item.Name + ": " + item.Count.toString());
+            var listElementObject = new AggregateElement(item);
+            unorderedList.appendChild(listElementObject.listElement);
         }
     }
 

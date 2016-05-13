@@ -57,8 +57,8 @@ namespace TeamY.Controllers
                     user.State = new StateModel
                     {
                         Id = state.Id,
-                        Name = state.Name
-                        
+                        Name = state.Name,
+                        IconClass = state.IconClass
                     };
                 }
             }
@@ -104,8 +104,8 @@ namespace TeamY.Controllers
                     user.State = new StateModel
                     {
                         Id = state.Id,
-                        Name = state.Name
-
+                        Name = state.Name,
+                        IconClass = state.IconClass
                     };
                 }
             }
