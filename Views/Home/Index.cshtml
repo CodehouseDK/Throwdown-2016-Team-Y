@@ -88,11 +88,14 @@
                 </div>
             </div>
             <div class="deployment--table">
-                <h2>Last @Model.LatestDeployments.Deployments.Count Deployments <span>of @Model.LatestDeployments.TotalNumber</span></h2>
+                <h2>Last @Model.LatestDeployments.Deployments.Count Deployments <span>(@Model.LatestDeployments.TotalNumber)</span></h2>
                 <ul>
                     @foreach (var deployment in Model.LatestDeployments.Deployments)
                     {
-                        <li>@deployment.Project.Name<span>@deployment.Created.ToLongDateString()</span></li>
+                        <li>
+                            @deployment.Project.Name (@deployment.Version)<br />
+                            <span>To @deployment.Enviroment.Name on @deployment.Created.ToLongDateString()</span>
+                        </li>
                     }
                 </ul>
             </div>

@@ -6,5 +6,6 @@ namespace TeamY.Services
     {
         LatestDeploymentsModel GetDeployments(int take);
         Project GetProject(string projectId);
+        Environment GetEnvironment(string environmentId);
     }
 }
