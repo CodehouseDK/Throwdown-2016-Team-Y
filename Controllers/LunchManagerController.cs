@@ -19,6 +19,7 @@ namespace TeamY.Controllers
         public IActionResult Add()
         {
             var lunch = new LunchModel();
+            lunch.Date = DateTime.Today;
             return View("Add", lunch);
         }
 
