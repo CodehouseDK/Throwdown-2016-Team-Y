@@ -4,11 +4,17 @@
 }
 
 @model TeamY.Models.HomeModel
-@Model.Name
-<p class="login">@Html.ActionLink("Logout", "Logout", "Account")</p>
-<div id="wrapper">
+
+<div id="top-nav">
     <header>
         <i class="icon-codehouse"></i>
+        <div class="username">
+            <p>@Model.Name</p>
+            <p class="login">@Html.ActionLink("Logout", "Logout", "Account")</p>
+        </div>
+        <div class="login-out">
+
+        </div>
         <div class="nav">
             <ul>
                 <li><a href="#">Codehouse<i class="icon-codehouse"></i></a></li>
@@ -16,10 +22,15 @@
                 <li><a href="#">Pandora<i class="icon-pandora"></i></a></li>
                 <li><a href="#">LEGO<i class="icon-lego"></i></a></li>
                 <li><a href="#">Admin<i class="icon-business"></i></a></li>
-
             </ul>
         </div>
+
     </header>
+
+</div>
+
+<div id="wrapper">
+
     <main>
         <!-- BEGIN: Overview -->
         <section class="overview">
@@ -65,9 +76,7 @@
                     <div class="mood-icon">
                         <i class="icon-happy"></i>
                     </div>
-                    <div class="mood-data">
-                        52%
-                    </div>
+                    <div class="mood-data">4.2</div>
                 </div>
             </div>
             <div class="lunch--table">
