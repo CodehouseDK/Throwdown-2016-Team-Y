@@ -49,7 +49,7 @@ export class MoodService {
 
     getMoods() {
         var xhr = new ajax.AjaxLoader();
-        xhr.getJson("http://localhost:56485/api/mood/getmoods", this.getMoodsSuccess, this.getMoodsError, this);
+        xhr.getJson("/api/mood/getmoods", this.getMoodsSuccess, this.getMoodsError, this);
     }
 
     success() {
