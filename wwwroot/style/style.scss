@@ -162,6 +162,18 @@ main {
             -moz-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.5);
             box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.5);
         }
+
+        .deployment--table {
+            width: 45%;
+            display: inline-block;
+            vertical-align: top;
+            padding: 10px;
+            margin: 12px 0;
+            border: 1px dotted $red;
+            -webkit-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.5);
+            -moz-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.5);
+            box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.5);
+        }
     }
 
     .location {

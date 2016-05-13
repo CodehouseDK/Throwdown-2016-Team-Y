@@ -24,6 +24,7 @@ namespace TeamY
                 config.Filters.Add(new AuthorizeFilter(policy));
             });
             services.AddSingleton<IUserService, UserService>();
+            services.AddScoped<IOctopusService, OctopusService>();
             services.AddEntityFramework()
                 .AddSqlServer()
                 .AddDbContext<TeamyDbContext>(options => options.UseSqlServer(connection));
