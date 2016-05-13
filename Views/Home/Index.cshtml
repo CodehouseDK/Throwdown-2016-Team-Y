@@ -93,7 +93,7 @@
                     @foreach (var deployment in Model.LatestDeployments.Deployments)
                     {
                         <li>
-                            @deployment.Project.Name (@deployment.Version)<br />
+                            @deployment.Project.Name (@deployment.Version)
                             <span>To @deployment.Enviroment.Name on @deployment.Created</span>
                         </li>
                     }
@@ -120,7 +120,6 @@
                     <div class="mood">
                         <div class="title">Mood</div>
                         <div class="option">
-                            <!--http://designwithpc.com/Plugins/ddSlick or http://www.marghoobsuleman.com/jquery-image-dropdown -->
                             <select id="updateMood">
                                 <option value="happy" data-image="/img/icons/happy.png">Happy</option>
                                 <option value="not happy" data-image="/img/icons/nothappy.png">Not Happy</option>
