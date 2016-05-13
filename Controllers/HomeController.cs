@@ -26,5 +26,10 @@ namespace TeamY.Controllers
             };
             return View(model);
         }
+
+        public IActionResult LocationDetails()
+        {
+            return View("LocationDetails", _locationDetailsService.GetLocationDetails());
+        }
     }
 }

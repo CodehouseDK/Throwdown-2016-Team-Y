@@ -1,0 +1,36 @@
+﻿@model IEnumerable<TeamY.Models.Rest.LocationDetailsModel>
+
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Info Page";
+}
+
+<div id="wrapper">
+
+    <main>
+        <section class="location--details">
+            <div class="location--details--container">
+                <div class="data-list">
+                    <ul>
+                        @foreach (var user in Model)
+            {
+                <!--BEGIN Profile -->
+                            <li>
+                                <div class="profile-img">
+                                    <img src="@user.UserImage" alt="">
+                                </div>
+                                <div class="profile-location--icon"><i class="@user.StateClass"></i></div>
+                                <div class="profile-location">@user.State</div>
+                                <div class="profile--mood--icon">
+                                    <i class="icon-@user.Mood"></i>
+                                </div>
+                            </li>
+                <!--END Profile -->
+                        }
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer></footer>
+</div> 
