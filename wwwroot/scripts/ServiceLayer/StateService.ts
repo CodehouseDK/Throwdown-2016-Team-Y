@@ -11,32 +11,44 @@ export interface IStateAggregateDto {
     Count: number;
 }
 
+class UserStateDto {
+    UserId: string;
+    StateId: string;
+
+    constructor(stateId: string) {
+        this.StateId = stateId;
+        this.UserId = null;
+    }
+}
+
 class Option {
     element: HTMLOptionElement;
 
     constructor(dto: IStateDto) {
         this.element = document.createElement("option");
-        this.element.nodeValue = dto.Id.toString();
+        this.element.value = dto.Id.toString();
         this.element.innerText = dto.Name;
     }
 }
 
 export class StateListService {
 
+    private me = this;
     init() {
-        this.getList();
-        //var selector = document.getElementById("updateStatus");
-        //selector.onchange = () => {
-        //    //this.getList((<HTMLInputElement>(updateMoodElement)).value);
-        //};
+        alert("stateinit");
+        this.populateStateCombo();
+        var selector = <HTMLSelectElement>document.getElementById("updateStatus");
+        selector.onchange = () => {
+            this.changeState(selector.value);
+        };
     }
 
-    getList() {
+    populateStateCombo() {
         var xhr = new ajax.AjaxLoader();
-        xhr.getJson("/api/state/getlist", this.success, this.error);
+        xhr.getJson("/api/state/getlist", this.multiStateSuccess, this.error);
     }
-
-    success(jsonResult: Array<IStateDto>) {
+    
+    multiStateSuccess(jsonResult: Array<IStateDto>, callback:any) {
         var selector = document.getElementById("updateStatus");
         while (selector.firstChild) {
             selector.removeChild(selector.firstChild);
@@ -48,6 +60,28 @@ export class StateListService {
             var option = new Option(item);
             selector.appendChild(option.element);
         }
+
+        new StateListService().setState();
+    }
+    
+    setState() {
+        var xhr = new ajax.AjaxLoader();
+        xhr.getJson("/api/state/getforuser", this.singleStateSuccess, this.error);
+    }
+
+    singleStateSuccess(jsonResult: IStateDto) {
+        var selector = <HTMLSelectElement>document.getElementById("updateStatus");
+        selector.value = jsonResult.Id;
+    }
+
+    changeState(value: string) {
+        var data = new UserStateDto(value);
+        var xhr = new ajax.AjaxLoader();
+        xhr.postJson("/api/state/set", data, this.changeSuccess, this.error);
+    }
+
+    changeSuccess() {
+        return true;
     }
 
     error(error: String, statusCode: Number) {
