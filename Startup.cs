@@ -24,6 +24,7 @@ namespace TeamY
                 config.Filters.Add(new AuthorizeFilter(policy));
             });
             services.AddSingleton<IUserService, UserService>();
+            services.AddSingleton<IAppointmentService, AppointmentService>();
             services.AddEntityFramework()
                 .AddSqlServer()
                 .AddDbContext<TeamyDbContext>(options => options.UseSqlServer(connection));
