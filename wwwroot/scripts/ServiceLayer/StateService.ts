@@ -45,14 +45,14 @@ export class StateListService {
         var xhr = new ajax.AjaxLoader();
         xhr.getJson("/api/state/getlist", this.multiStateSuccess, this.error);
     }
-    
-    multiStateSuccess(jsonResult: Array<IStateDto>, callback:any) {
+
+    multiStateSuccess(jsonResult: Array<IStateDto>, callback: any) {
         var selector = document.getElementById("updateStatus");
         while (selector.firstChild) {
             selector.removeChild(selector.firstChild);
         }
         var length = jsonResult.length;
-        
+
         for (var i = 0; i < length; i += 1) {
             var item = jsonResult[i];
             var option = new Option(item);
@@ -61,7 +61,7 @@ export class StateListService {
 
         new StateListService().setState();
     }
-    
+
     setState() {
         var xhr = new ajax.AjaxLoader();
         xhr.getJson("/api/state/getforuser", this.singleStateSuccess, this.error);
@@ -91,13 +91,46 @@ export class StateListService {
 }
 
 export class StateOverviewService {
-    getOverview() {
-        var xhr = new ajax.AjaxLoader();
-        xhr.getJson("/api/state/getoverview", this.success, this.error);
+
+    //init() {
+    //    this.populateOverview();
+    //}
+
+    //populateOverview() {
+    //    var xhr = new ajax.AjaxLoader();
+    //    xhr.getJson("/api/state/getoverview", this.overViewSuccess, this.error);
+    //}
+
+    //overViewSuccess(jsonResult: any:data) {
+    //    var length = jsonResult.length;
+    //    for (var i = 0; i < length; i += 1) {
+    //        var item = jsonResult[i];
+    //        console.log(item.Name + ": " + item.Count.toString());
+    //    } 
+    //}
+
+    error(error: String, statusCode: Number) {
+        console.error(error);
+    }
+}
+
+export class StateAggregateService {
+
+    init() {
+        this.populateAggregatedStates();
     }
 
-    success(jsonResult: IStateAggregateDto) {
-        //document.getElementById("lunch-content").innerHTML = jsonResult.Menu;
+    populateAggregatedStates() {
+        var xhr = new ajax.AjaxLoader();
+        xhr.getJson("/api/state/getaggregate", this.success, this.error);
+    }
+    
+    success(jsonResult: Array<IStateAggregateDto>) {
+        var length = jsonResult.length;
+        for (var i = 0; i < length; i += 1) {
+            var item = jsonResult[i];
+            console.log(item.Name + ": " + item.Count.toString());
+        }
     }
 
     error(error: String, statusCode: Number) {

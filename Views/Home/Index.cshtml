@@ -38,63 +38,60 @@
                 <div class="location-stats">
                     <h2>Location</h2>
                     <div class="data-list">
-                        <ul>
+                        <ul id="location-list">
                             <!--BEGIN Location -->
                             <li>
-                                <div class="location--icon">
-                                    <i class="icon-business"></i>
-                                </div>
-                                <div class="location--title">Meeting</div>
-                                <div class="location-count">10</div>
+                                <i class="icon-business"></i>
+                                <span>10</span>
+                                <span>Meeting</span>
                             </li>
                             <!--END Profile -->
                             <!--BEGIN Location -->
                             <li>
-                                <div class="location--icon">
-                                    <i class="icon-lunch"></i>
-                                </div>
-                                <div class="location--title">Lunch</div>
-                                <div class="location-count">3</div>
+                                <i class="icon-lunch"></i>
+                                <span>3</span>
+                                <span>Lunch</span>
                             </li>
                             <!--END Profile --> <!--BEGIN Location -->
                             <li>
-                                <div class="location--icon">
-                                    <i class="icon-working-at-home"></i>
-                                </div>
-                                <div class="location--title">Home</div>
-                                <div class="location-count">2</div>
+                                <i class="icon-working-at-home"></i>
+                                <span>2</span>
+                                <span>Home</span>
+
                             </li>
                             <!--END Profile -->
                             <!--END Profile --> <!--BEGIN Location -->
                             <li>
-                                <div class="location--icon">
-                                    <i class="icon-day-off"></i>
-                                </div>
-                                <div class="location--title">Day off</div>
-                                <div class="location-count">2</div>
+                                <i class="icon-day-off"></i>
+                                <span>2</span>
+                                <span>Day Off</span>
                             </li>
                             <!--END Profile -->
                         </ul>
                     </div>
+                    <a href="">See all</a>
                 </div>
 
             </div>
             <div class="mood--table">
                 <div class="mood-stats">
                     <h2>Mood</h2>
-                    <div class="mood-icon">
-                        <i class="icon-happy"></i>
+                    <div class="mood-container">
+                        <div class="mood-icon">
+                            <i class="icon-happy"></i>
+                        </div>
+                        <div class="mood-data">4.2</div>
                     </div>
-                    <div class="mood-data">4.2</div>
+                    <a href="">See all</a>
                 </div>
             </div>
             <div class="lunch--table">
                 <div class="lunch-stats">
                     <h2>Todays lunch<i class="icon-lunch"></i> </h2>
-                    
+
                     <div class="lunch-content" id="lunch-content">
                     </div>
-                   @Html.ActionLink("Manage", "Index", "LunchManager")
+                    @Html.ActionLink("Manage", "Index", "LunchManager")
                 </div>
             </div>
             <div class="deployment--table">
@@ -119,12 +116,14 @@
                 </div>
                 <div class="profile-settings">
                     <div class="location">
+                        <h2>@Model.Name</h2>
                         <div class="title">Status</div>
                         <div class="option">
                             <select id="updateStatus">
                                 <option value="work">Work</option>
                                 <option value="home">Home</option>
                             </select>
+                            <i class="icon-lunch"></i>
                         </div>
                     </div>
                     <div class="mood">
