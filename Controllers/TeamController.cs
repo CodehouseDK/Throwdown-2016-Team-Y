@@ -22,8 +22,7 @@ namespace TeamY.Controllers
         }
         
         [HttpGet]
-        [Route("getall")]
-        public JsonResult GetAll()
+        public IActionResult Get()
         {
             var teams = _context.Teams;
             var users = _context.Users;
@@ -66,7 +65,54 @@ namespace TeamY.Controllers
                 }
             }
 
-            return Json(output);
+            return Ok(output);
+        }
+
+        [HttpGet("{teamid}")]
+        public IActionResult Get(string teamId)
+        {
+            var teams = _context.Teams.Where(x => x.Id == Guid.Parse(teamId));
+            var users = _context.Users;
+            var userStates = _context.UserStates.Where(_ => _.Current);
+            var states = _context.States;
+
+            var output = new TeamOutputModel
+            {
+                Teams = teams.Select(team => new TeamModel
+                {
+                    Id = team.Id,
+                    Name = team.Name,
+                    Users = users.Where(_ => _.TeamId == team.Id).Select(__ =>
+                        new UserModel
+                        {
+                            Id = __.Id,
+                            TeamId = __.TeamId,
+                            Name = __.Name,
+                            Initials = __.Initials
+                        }).ToList()
+                }).ToList()
+            };
+
+            foreach (var team in output.Teams)
+            {
+                foreach (var user in team.Users)
+                {
+                    var userState = userStates.SingleOrDefault(_ => _.UserId == user.Id);
+                    if (userState == null)
+                    {
+                        continue;
+                    }
+                    var state = states.Single(_ => _.Id == userState.StateId);
+                    user.State = new StateModel
+                    {
+                        Id = state.Id,
+                        Name = state.Name
+
+                    };
+                }
+            }
+
+            return Ok(output);
         }
     }
 }
