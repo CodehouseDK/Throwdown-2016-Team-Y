@@ -9,10 +9,11 @@ namespace TeamY.Models
             if (user != null)
             {
                 Name = user.Name;
+                UserImage = $"/images/employees/{user.Initials}.jpg";
             }
         }
 
         public string Name { get; }
-
+        public string UserImage { get; }
     }
 }
