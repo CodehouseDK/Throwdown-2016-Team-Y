@@ -448,8 +448,29 @@ main {
                 .profile-settings {
                     display: inline-block;
 
+                    select {
+                        width: 210px;
+                    }
+
+                    i {
+                        margin-left: 20px;
+                        font-size: 20px;
+                        vertical-align: text-top;
+                    }
+
+                    .title {
+                        margin-right: 10px;
+                        display: inline-block;
+                        font-weight: bold;
+                        width: 50px;
+                    }
+
                     .location {
                         padding: 10px 0;
+
+                        h2 {
+                            margin: 0 0 20px 0;
+                        }
 
                         .title {
                             margin-right: 10px;
@@ -465,20 +486,10 @@ main {
                     .mood {
                         padding: 10px 0;
 
-                        .title {
-                            margin-right: 10px;
-                            display: inline-block;
-                            font-weight: bold;
-                        }
+
 
                         .option {
                             display: inline-block;
-
-                            i {
-                                margin-left: 20px;
-                                font-size: 20px;
-                                vertical-align: text-top;
-                            }
                         }
                     }
                 }
