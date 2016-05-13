@@ -6,5 +6,7 @@ namespace TeamY.Models.Rest
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
+
+       
     }
 }
