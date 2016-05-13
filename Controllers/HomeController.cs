@@ -29,7 +29,12 @@ namespace TeamY.Controllers
 
         public IActionResult LocationDetails()
         {
-            return View("LocationDetails", _locationDetailsService.GetLocationDetails());
+            var model = new HomeModel(_nameService.Current(User))
+            {
+                LatestDeployments = _octopusService.GetDeployments(5),
+                LocationDetails = _locationDetailsService.GetLocationDetails()
+            };
+            return View("LocationDetails", model);
         }
     }
 }

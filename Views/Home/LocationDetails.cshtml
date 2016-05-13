@@ -1,18 +1,40 @@
-﻿@model IEnumerable<TeamY.Models.Rest.LocationDetailsModel>
+﻿@model TeamY.Models.HomeModel
 
 @{
     Layout = "/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Info Page";
 }
+<div id="top-nav">
+    <header>
+        <i class="icon-codehouse"></i>
+        <div class="username">
+            <p>@Model.Name</p>
+            <p class="login">@Html.ActionLink("Logout", "Logout", "Account")</p>
+        </div>
+        <div class="login-out">
+
+        </div>
+        <div class="nav">
+            <ul>
+                <li><a href="#">Codehouse<i class="icon-codehouse"></i></a></li>
+                <li><a href="#">Galaxy<i class="icon-galaxy"></i></a></li>
+                <li><a href="#">Pandora<i class="icon-pandora"></i></a></li>
+                <li><a href="#">LEGO<i class="icon-lego"></i></a></li>
+                <li><a href="#">Admin<i class="icon-business"></i></a></li>
+            </ul>
+        </div>
+
+    </header>
+
+</div>
 
 <div id="wrapper">
-
     <main>
         <section class="location--details">
             <div class="location--details--container">
                 <div class="data-list">
                     <ul>
-                        @foreach (var user in Model)
+                        @foreach (var user in Model.LocationDetails)
             {
                 <!--BEGIN Profile -->
                             <li>
