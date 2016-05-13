@@ -34,7 +34,7 @@ body {
 
 #top-nav {
     position: fixed;
-    padding:8px 0;
+    padding: 8px 0;
     height: 90px;
     top: 0;
     width: 100%;
@@ -174,8 +174,7 @@ header {
                         font-size: 21px;
                         margin-left: 10px;
                         vertical-align: sub;
-                        display:inline;
-
+                        display: inline;
                     }
                 }
             }
@@ -213,14 +212,19 @@ main {
                         li {
                             list-style: none;
 
-                            .location--icon {
-                                display: inline-block;
-                                vertical-align: top;
-                                padding: 15px;
 
-                                i {
-                                    font-size: 30px;
-                                }
+
+                            i {
+                                font-size: 30px;
+                                display: inline-block;
+                                vertical-align: sub;
+                                padding: 15px;
+                            }
+
+                            span {
+                                font-size: 26px;
+                                display: inline-block;
+                                margin: 0 6px;
                             }
                         }
 
@@ -291,7 +295,7 @@ main {
 
                 .lunch-content {
                     width: 100%;
-                    margin-bottom:20px;
+                    margin-bottom: 20px;
                 }
 
                 a {
