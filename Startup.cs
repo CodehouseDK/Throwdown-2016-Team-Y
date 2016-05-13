@@ -25,6 +25,7 @@ namespace TeamY
             });
             services.AddSingleton<IUserService, UserService>();
             services.AddScoped<IOctopusService, OctopusService>();
+            services.AddSingleton<IAppointmentService, AppointmentService>();
             services.AddEntityFramework()
                 .AddSqlServer()
                 .AddDbContext<TeamyDbContext>(options => options.UseSqlServer(connection));

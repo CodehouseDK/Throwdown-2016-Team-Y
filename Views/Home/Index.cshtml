@@ -59,9 +59,18 @@
                             <!--END Profile --> <!--BEGIN Location -->
                             <li>
                                 <div class="location--icon">
-                                    <i class="icon-home"></i>
+                                    <i class="icon-working-at-home"></i>
                                 </div>
                                 <div class="location--title">Home</div>
+                                <div class="location-count">2</div>
+                            </li>
+                            <!--END Profile -->
+                            <!--END Profile --> <!--BEGIN Location -->
+                            <li>
+                                <div class="location--icon">
+                                    <i class="icon-day-off"></i>
+                                </div>
+                                <div class="location--title">Day off</div>
                                 <div class="location-count">2</div>
                             </li>
                             <!--END Profile -->
@@ -81,9 +90,11 @@
             </div>
             <div class="lunch--table">
                 <div class="lunch-stats">
-                    <h2>Todays lunch</h2>
+                    <h2>Todays lunch<i class="icon-lunch"></i> </h2>
+                    
                     <div class="lunch-content" id="lunch-content">
                     </div>
+                   @Html.ActionLink("Manage", "Index", "LunchManager")
                 </div>
             </div>
             <div class="deployment--table">
@@ -130,46 +141,6 @@
             </div>
         </section>
         <!-- END: Location settings -->
-        <!-- BEGIN: Mood stats -->
-        <section class="mood--stats">
-            <div class="mood--stats--container">
-                <div class="data-list">
-                    <ul>
-                        <!--BEGIN Profile -->
-                        <li>
-                            <div class="profile-img">
-                                <img src="http://www.codehouse.com/~/media/Codehouse/240x240/240x240-Martin-P.ashx" alt="">
-                            </div>
-                            <div class="profile--mood--icon">
-                                <i class="icon-okay"></i>
-                            </div>
-                        </li>
-                        <!--END Profile -->
-                        <!--BEGIN Profile -->
-                        <li>
-                            <div class="profile-img">
-                                <img src="http://www.codehouse.com/~/media/Codehouse/240x240/240x240-Martin-P.ashx" alt="">
-                            </div>
-                            <div class="profile--mood--icon">
-                                <i class="icon-good"></i>
-                            </div>
-                        </li>
-                        <!--END Profile -->
-                        <!--BEGIN Profile -->
-                        <li>
-                            <div class="profile-img">
-                                <img src="http://www.codehouse.com/~/media/Codehouse/240x240/240x240-Martin-P.ashx" alt="">
-                            </div>
-                            <div class="profile--mood--icon">
-                                <i class="icon-clever"></i>
-                            </div>
-                        </li>
-                        <!--END Profile -->
-                    </ul>
-                </div>
-            </div>
-        </section>
-        <!-- END: Mood stats -->
         <!-- BEGIN: Location stats -->
         <section class="location--details">
             <div class="location--details--container">

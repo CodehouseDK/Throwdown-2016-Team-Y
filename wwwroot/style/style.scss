@@ -199,6 +199,7 @@ main {
             -webkit-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.5);
             -moz-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.5);
             box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.5);
+            min-height: 330px;
 
             .location-stats {
                 .data-list {
@@ -249,12 +250,14 @@ main {
             -webkit-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.5);
             -moz-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.5);
             box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.5);
+            min-height: 330px;
 
             .mood-stats {
                 .mood-icon {
                     display: inline-block;
                     width: 45%;
                     text-align: center;
+                    padding-top: 35px;
 
                     i {
                         font-size: 96px;
@@ -279,6 +282,42 @@ main {
             -webkit-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.5);
             -moz-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.5);
             box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.5);
+            min-height: 330px;
+
+            .lunch-stats {
+                i {
+                    margin-left: 15px;
+                }
+
+                .lunch-content {
+                    width: 100%;
+                    margin-bottom:20px;
+                }
+
+                a {
+                    float: right;
+                    padding: 6px 14px;
+                    display: inline-block;
+                    background-color: $red;
+                    border-radius: 2px;
+                    -moz-appearance: none;
+                    -webkit-appearance: none;
+                    appearance: none;
+                    border: none;
+                    color: white;
+                    text-decoration: none;
+
+                    &:hover {
+                        -webkit-box-shadow: inset 11px 10px 14px -9px rgba(0,0,0,0.45);
+                        -moz-box-shadow: inset 11px 10px 14px -9px rgba(0,0,0,0.45);
+                        box-shadow: inset 11px 10px 14px -9px rgba(0,0,0,0.45);
+                    }
+
+                    &:focus {
+                        outline: none;
+                    }
+                }
+            }
         }
 
         .deployment--table {
@@ -291,6 +330,7 @@ main {
             -webkit-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.5);
             -moz-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.5);
             box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.5);
+            min-height: 330px;
 
             ul {
                 list-style: none;
