@@ -302,15 +302,15 @@ main {
                     list-style: none;
                     background-color: #e9e8e7;
                     color: black;
+                    font-weight: bold;
 
                     &:nth-child(even) {
                         background-color: #d9d8d5;
                     }
 
                     span {
-                        font-weight: bold;
-                        margin: 0 10px;
-                        float: right;
+                        font-weight: normal;
+                        display: block;
                     }
                 }
             }
