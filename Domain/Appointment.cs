@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNet.Server.Kestrel.Http;
-using Microsoft.Exchange.WebServices.Data;
 
 namespace TeamY.Domain
 {
@@ -27,7 +22,7 @@ namespace TeamY.Domain
 
         public bool IsMeeting { get; set; }
         public bool IsCancelled { get; set; }
-        public AppointmentType AppointmentType { get; set; }
+        //public AppointmentType AppointmentType { get; set; }
         public TimeSpan Duration { get; set; }
         public bool IsOnlineMeeting { get; set; }
     }
