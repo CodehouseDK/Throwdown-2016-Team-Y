@@ -38,7 +38,7 @@
                 <div class="location-stats">
                     <h2>Location</h2>
                     <div class="data-list">
-                        <ul>
+                        <ul id="location-list">
                             <!--BEGIN Location -->
                             <li>
                                 <i class="icon-business"></i>
@@ -69,16 +69,20 @@
                             <!--END Profile -->
                         </ul>
                     </div>
+                    <a href="">See all</a>
                 </div>
 
             </div>
             <div class="mood--table">
                 <div class="mood-stats">
                     <h2>Mood</h2>
-                    <div class="mood-icon">
-                        <i class="icon-happy"></i>
+                    <div class="mood-container">
+                        <div class="mood-icon">
+                            <i class="icon-happy"></i>
+                        </div>
+                        <div class="mood-data">4.2</div>
                     </div>
-                    <div class="mood-data">4.2</div>
+                    <a href="">See all</a>
                 </div>
             </div>
             <div class="lunch--table">
@@ -112,6 +116,7 @@
                 </div>
                 <div class="profile-settings">
                     <div class="location">
+                        <h2>@Model.Name</h2>
                         <div class="title">Status</div>
                         <div class="option">
                             <select id="updateStatus">

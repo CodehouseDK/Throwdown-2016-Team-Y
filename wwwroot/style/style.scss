@@ -241,6 +241,30 @@ main {
                         }
                     }
                 }
+
+                a {
+                    float: right;
+                    padding: 6px 14px;
+                    display: inline-block;
+                    background-color: $red;
+                    border-radius: 2px;
+                    -moz-appearance: none;
+                    -webkit-appearance: none;
+                    appearance: none;
+                    border: none;
+                    color: white;
+                    text-decoration: none;
+
+                    &:hover {
+                        -webkit-box-shadow: inset 11px 10px 14px -9px rgba(0,0,0,0.45);
+                        -moz-box-shadow: inset 11px 10px 14px -9px rgba(0,0,0,0.45);
+                        box-shadow: inset 11px 10px 14px -9px rgba(0,0,0,0.45);
+                    }
+
+                    &:focus {
+                        outline: none;
+                    }
+                }
             }
         }
 
@@ -257,21 +281,50 @@ main {
             min-height: 330px;
 
             .mood-stats {
-                .mood-icon {
-                    display: inline-block;
-                    width: 45%;
-                    text-align: center;
-                    padding-top: 35px;
+                .mood-container {
+                    float: none;
+                    padding-bottom: 108px;
 
-                    i {
-                        font-size: 96px;
+                    .mood-icon {
+                        display: inline-block;
+                        width: 45%;
+                        text-align: center;
+                        padding-top: 35px;
+
+                        i {
+                            font-size: 96px;
+                        }
+                    }
+
+                    .mood-data {
+                        display: inline-block;
+                        width: 45%;
+                        font-size: 115px;
                     }
                 }
+            }
 
-                .mood-data {
-                    display: inline-block;
-                    width: 45%;
-                    font-size: 115px;
+            a {
+                float: right;
+                padding: 6px 14px;
+                display: inline-block;
+                background-color: $red;
+                border-radius: 2px;
+                -moz-appearance: none;
+                -webkit-appearance: none;
+                appearance: none;
+                border: none;
+                color: white;
+                text-decoration: none;
+
+                &:hover {
+                    -webkit-box-shadow: inset 11px 10px 14px -9px rgba(0,0,0,0.45);
+                    -moz-box-shadow: inset 11px 10px 14px -9px rgba(0,0,0,0.45);
+                    box-shadow: inset 11px 10px 14px -9px rgba(0,0,0,0.45);
+                }
+
+                &:focus {
+                    outline: none;
                 }
             }
         }
