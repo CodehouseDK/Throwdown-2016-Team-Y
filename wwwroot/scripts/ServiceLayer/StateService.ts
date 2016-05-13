@@ -149,7 +149,7 @@ export class StateAggregateService {
 
     populateAggregatedStates() {
         var xhr = new ajax.AjaxLoader();
-        xhr.getJson("/api/state/getoverview", this.success, this.error, this);
+        xhr.getJson("/api/state/getaggregate", this.success, this.error, this);
     }
     
     success(jsonResult: Array<IStateAggregateDto>) {
@@ -162,7 +162,6 @@ export class StateAggregateService {
         var length = jsonResult.length;
         for (var i = 0; i < length; i += 1) {
             var item = jsonResult[i];
-            console.log(item.Name + ": " + item.Count.toString());
             var listElementObject = new AggregateElement(item);
             unorderedList.appendChild(listElementObject.listElement);
         }
