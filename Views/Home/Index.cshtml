@@ -38,7 +38,7 @@
                 <div class="location-stats">
                     <h2>Location</h2>
                     <div class="data-list">
-                        <ul>
+                        <ul id="location-list">
                             <!--BEGIN Location -->
                             <li>
                                 <i class="icon-business"></i>
@@ -69,16 +69,20 @@
                             <!--END Profile -->
                         </ul>
                     </div>
+                    <a href="">See all</a>
                 </div>
 
             </div>
             <div class="mood--table">
                 <div class="mood-stats">
                     <h2>Mood</h2>
-                    <div class="mood-icon">
-                        <i class="icon-happy"></i>
+                    <div class="mood-container">
+                        <div class="mood-icon">
+                            <i class="icon-happy"></i>
+                        </div>
+                        <div class="mood-data">4.2</div>
                     </div>
-                    <div class="mood-data">4.2</div>
+                    <a href="">See all</a>
                 </div>
             </div>
             <div class="lunch--table">
@@ -112,12 +116,14 @@
                 </div>
                 <div class="profile-settings">
                     <div class="location">
+                        <h2>@Model.Name</h2>
                         <div class="title">Status</div>
                         <div class="option">
                             <select id="updateStatus">
                                 <option value="work">Work</option>
                                 <option value="home">Home</option>
                             </select>
+                            <i class="icon-lunch"></i>
                         </div>
                     </div>
                     <div class="mood">
@@ -136,45 +142,7 @@
         <!-- END: Location settings -->
         <!-- BEGIN: Location stats -->
         <section class="location--details">
-            <div class="location--details--container">
-                <div class="data-list">
-                    <ul>
-                        <!--BEGIN Profile -->
-                        <li>
-                            <div class="profile-img">
-                                <img src="http://www.codehouse.com/~/media/Codehouse/240x240/240x240-Martin-P.ashx" alt="">
-                            </div>
-                            <div class="profile-location">Work</div>
-                            <div class="profile--mood--icon">
-                                <i class="icon-neutral"></i>
-                            </div>
-                        </li>
-                        <!--END Profile -->
-                        <!--BEGIN Profile -->
-                        <li>
-                            <div class="profile-img">
-                                <img src="http://www.codehouse.com/~/media/Codehouse/240x240/240x240-Martin-P.ashx" alt="">
-                            </div>
-                            <div class="profile-location">Work</div>
-                            <div class="profile--mood--icon">
-                                <i class="icon-stressed"></i>
-                            </div>
-                        </li>
-                        <!--END Profile -->
-                        <!--BEGIN Profile -->
-                        <li>
-                            <div class="profile-img">
-                                <img src="http://www.codehouse.com/~/media/Codehouse/240x240/240x240-Martin-P.ashx" alt="">
-                            </div>
-                            <div class="profile-location">Work</div>
-                            <div class="profile--mood--icon">
-                                <i class="icon-yelling"></i>
-                            </div>
-                        </li>
-                        <!--END Profile -->
-                    </ul>
-                </div>
-            </div>
+            @Html.Partial("_LocationDetails", Model.LocationDetails)
         </section>
         <section class="mood--details"></section>
     </main>

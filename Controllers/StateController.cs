@@ -31,7 +31,8 @@ namespace TeamY.Controllers
             var output =_context.States.Select(_ => new StateModel
             {
                 Id = _.Id,
-                Name = _.Name
+                Name = _.Name,
+                IconClass = _.IconClass
             }).ToList();
             return Json(output);
         }
@@ -49,7 +50,8 @@ namespace TeamY.Controllers
             : new StateModel
             {
                 Id = state.Id,
-                Name = state.Name
+                Name = state.Name,
+                IconClass = state.IconClass
             };
             return Json(output);
         } 
@@ -82,7 +84,8 @@ namespace TeamY.Controllers
                     State = new StateModel
                     {
                         Id = state.Id,
-                        Name = state.Name
+                        Name = state.Name,
+                        IconClass = state.IconClass
                     }
                 });
             }
@@ -103,7 +106,8 @@ namespace TeamY.Controllers
                 {
                     Id = state.Id,
                     Name = state.Name,
-                    Count = count
+                    Count = count,
+                    IconClass = state.IconClass
                 });
             }
 

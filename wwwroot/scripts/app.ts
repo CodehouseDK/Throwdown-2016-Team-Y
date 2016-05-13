@@ -9,5 +9,8 @@ var moodService = new mood.MoodService();
 moodService.init();
 lunchService.getLunch();
 
-var stateService = new state.StateListService();
-stateService.init();
+var stateListService = new state.StateListService();
+stateListService.init();
+
+var stateAggregateService = new state.StateAggregateService();
+stateAggregateService.init();
