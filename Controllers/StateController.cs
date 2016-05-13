@@ -6,6 +6,7 @@ using Microsoft.AspNet.Mvc;
 using TeamY.Domain;
 using TeamY.Infrastructure;
 using TeamY.Models.Rest;
+using TeamY.Services;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -15,10 +16,12 @@ namespace TeamY.Controllers
     public class StateController : Controller
     {
         private readonly TeamyDbContext _context;
+        private readonly IUserService _userService;
 
-        public StateController(TeamyDbContext context)
+        public StateController(TeamyDbContext context, IUserService userService)
         {
             _context = context;
+            _userService = userService;
         }
 
         [HttpGet]
@@ -32,8 +35,7 @@ namespace TeamY.Controllers
             }).ToList();
             return Json(output);
         }
-
-
+        
         [HttpGet]
         [Route("getoverview")]
         public JsonResult GetOverview()
