@@ -4,11 +4,17 @@
 }
 
 @model TeamY.Models.HomeModel
-@Model.Name
-<p class="login">@Html.ActionLink("Logout", "Logout", "Account")</p>
-<div id="wrapper">
+
+<div id="top-nav">
     <header>
         <i class="icon-codehouse"></i>
+        <div class="username">
+            <p>@Model.Name</p>
+            <p class="login">@Html.ActionLink("Logout", "Logout", "Account")</p>
+        </div>
+        <div class="login-out">
+
+        </div>
         <div class="nav">
             <ul>
                 <li><a href="#">Codehouse<i class="icon-codehouse"></i></a></li>
@@ -16,10 +22,15 @@
                 <li><a href="#">Pandora<i class="icon-pandora"></i></a></li>
                 <li><a href="#">LEGO<i class="icon-lego"></i></a></li>
                 <li><a href="#">Admin<i class="icon-business"></i></a></li>
-
             </ul>
         </div>
+
     </header>
+
+</div>
+
+<div id="wrapper">
+
     <main>
         <!-- BEGIN: Overview -->
         <section class="overview">
@@ -65,18 +76,29 @@
                     <div class="mood-icon">
                         <i class="icon-happy"></i>
                     </div>
-                    <div class="mood-data">
-                        52%
-                    </div>
+                    <div class="mood-data">4.2</div>
                 </div>
             </div>
             <div class="lunch--table">
                 <div class="lunch-stats">
-                    <h2>Todays lunch</h2>
+                    <h2>Todays lunch<i class="icon-lunch"></i> </h2>
+                    
                     <div class="lunch-content" id="lunch-content">
                     </div>
-                    <i class="icon-lunch"></i> @Html.ActionLink("Manage", "Index", "LunchManager")
+                   @Html.ActionLink("Manage", "Index", "LunchManager")
                 </div>
+            </div>
+            <div class="deployment--table">
+                <h2>Last @Model.LatestDeployments.Deployments.Count Deployments <span>(@Model.LatestDeployments.TotalNumber)</span></h2>
+                <ul>
+                    @foreach (var deployment in Model.LatestDeployments.Deployments)
+                    {
+                        <li>
+                            @deployment.Project.Name (@deployment.Version)
+                            <span>To @deployment.Enviroment.Name on @deployment.Created</span>
+                        </li>
+                    }
+                </ul>
             </div>
         </section>
         <!-- END: Overview -->
@@ -99,7 +121,6 @@
                     <div class="mood">
                         <div class="title">Mood</div>
                         <div class="option">
-                            <!--http://designwithpc.com/Plugins/ddSlick or http://www.marghoobsuleman.com/jquery-image-dropdown -->
                             <select id="updateMood">
                                 <option value="happy" data-image="/img/icons/happy.png">Happy</option>
                                 <option value="not happy" data-image="/img/icons/nothappy.png">Not Happy</option>

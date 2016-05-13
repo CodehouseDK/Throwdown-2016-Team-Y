@@ -23,16 +23,25 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-chair:before {
+.icon-at-internal-meeting:before {
+    content: "\e90a";
+}
+.icon-at-external-meeting:before {
+    content: "\e90b";
+}
+.icon-day-off:before {
+    content: "\e90c";
+}
+.icon-at-computer:before {
     content: "\e904";
 }
 .icon-smoking:before {
     content: "\e905";
 }
-.icon-sick:before {
+.icon-ill:before {
     content: "\e906";
 }
-.icon-home:before {
+.icon-working-at-home:before {
     content: "\e907";
 }
 .icon-business:before {
@@ -101,4 +110,3 @@
 .icon-clever:before {
     content: "\e92d";
 }
-

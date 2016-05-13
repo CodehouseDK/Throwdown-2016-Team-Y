@@ -1,4 +1,5 @@
 using TeamY.Domain;
+using TeamY.Models.Octopus;
 
 namespace TeamY.Models
 {
@@ -15,5 +16,6 @@ namespace TeamY.Models
 
         public string Name { get; }
         public string UserImage { get; }
+        public LatestDeploymentsModel LatestDeployments { get; set; }
     }
 }

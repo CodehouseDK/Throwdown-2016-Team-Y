@@ -7,28 +7,34 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
 </head>
 <body>
-<div id="wrapper">
-    <h1>Login</h1>
-    @{
-        var error = ViewBag.Error;
-        if (error != null)
-        {
-            <div class="error">@error <i class="icon-stressed"></i></div>
-        }
+    <div id="wrapper" class="no-bg">
+        <div class="login-box">
+            <div class="login-box--content">
+                <h1>Login</h1>
+                @{
+                    var error = ViewBag.Error;
+                    if (error != null)
+                    {
+                        <div class="error">
+                            @error <i class="icon-stressed"></i>
+                        </div>
+                    }
 
-    }
-    @using (Html.BeginForm("Login", "Account", FormMethod.Post))
-    {
-        @Html.AntiForgeryToken()
-        ;
+                }
+                @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+            {
+                    @Html.AntiForgeryToken()
 
-        <p>
-            User name: <input name="username"/>
-        </p>
-        <p>
-            <input type="submit" value="Login"/>
-        </p>
-    }
-</div>
+                    <p>
+                        User name: <input name="username" class="txt-username"/>
+                    </p>
+                    <p class="btn">
+                        <input type="submit" value="Login" class="btn-login" />
+                    </p>
+                }
+            </div>
+
+        </div>
+    </div>
 </body>
 </html>
