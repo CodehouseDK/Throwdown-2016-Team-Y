@@ -35,7 +35,7 @@ namespace TeamY.Services
                         Team = team.Name,
                         User = user.Name,
                         UserImage = $"/images/employees/{user.Initials}.jpg",
-                        Mood = user.Mood ?? "happy",
+                        Mood = user.Mood ?? "icon-happy",
                         State = currentState.Name,
                         StateClass = currentState.IconClass
                     };
