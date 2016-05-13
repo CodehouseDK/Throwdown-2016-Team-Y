@@ -112,6 +112,10 @@ header {
     width: 1024px;
     margin: 0 auto;
 
+    a {
+        color: $red;
+    }
+
     .icon-codehouse {
         font-size: 40px;
         padding-bottom: 10px;
