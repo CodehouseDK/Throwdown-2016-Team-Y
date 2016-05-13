@@ -43,7 +43,7 @@ export class StateListService {
 
     populateStateCombo() {
         var xhr = new ajax.AjaxLoader();
-        xhr.getJson("/api/state/getlist", this.multiStateSuccess, this.error);
+        xhr.getJson("/api/state/getlist", this.multiStateSuccess, this.error, this);
     }
     
     multiStateSuccess(jsonResult: Array<IStateDto>, callback:any) {
@@ -64,7 +64,7 @@ export class StateListService {
     
     setState() {
         var xhr = new ajax.AjaxLoader();
-        xhr.getJson("/api/state/getforuser", this.singleStateSuccess, this.error);
+        xhr.getJson("/api/state/getforuser", this.singleStateSuccess, this.error, this);
     }
 
     singleStateSuccess(jsonResult: IStateDto) {
@@ -93,7 +93,7 @@ export class StateListService {
 export class StateOverviewService {
     getOverview() {
         var xhr = new ajax.AjaxLoader();
-        xhr.getJson("/api/state/getoverview", this.success, this.error);
+        xhr.getJson("/api/state/getoverview", this.success, this.error, this);
     }
 
     success(jsonResult: IStateAggregateDto) {

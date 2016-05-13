@@ -1,4 +1,5 @@
-﻿using Microsoft.Data.Entity;
+﻿using System;
+using Microsoft.Data.Entity;
 using TeamY.Domain;
 
 namespace TeamY.Infrastructure
@@ -18,5 +19,6 @@ namespace TeamY.Infrastructure
         public DbSet<Lunch> Lunches { get; set; }
 
         public DbSet<MoodRegistration> MoodRegistrations { get; set; }
+        public DbSet<Mood> Moods { get; set; }
     }
 }

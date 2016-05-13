@@ -13,7 +13,7 @@ export class LunchService {
 	
 	getLunch() {
 		var xhr = new ajax.AjaxLoader();
-		xhr.getJson("/api/lunch", this.success, this.error);
+		xhr.getJson("/api/lunch", this.success, this.error, this);
 	}
 
 	success(jsonResult: ILunchDto) {

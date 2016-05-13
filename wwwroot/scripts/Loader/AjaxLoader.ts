@@ -1,15 +1,15 @@
 
 export class AjaxLoader {
 
-    getJson(url: string, success: Function, error: Function) {
+    getJson(url: string, success: Function, error: Function, owner:any) {
         var xhr = new XMLHttpRequest();
 
         xhr.onreadystatechange = () => {
             if (xhr.readyState === 4) {
                 if (xhr.status === 200) {
-                    success(JSON.parse(xhr.responseText));
+                    success(JSON.parse(xhr.responseText), owner);
                 } else {
-                    error(xhr.responseText, xhr.status);
+                    error(xhr.responseText, xhr.status, owner);
                 }
             }
         };

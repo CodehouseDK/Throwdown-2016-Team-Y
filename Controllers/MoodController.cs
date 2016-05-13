@@ -53,5 +53,12 @@ namespace TeamY.Controllers
             _context.SaveChanges();
             return Ok();
         }
+
+        [HttpGet]
+        [Route("getmoods")]
+        public IActionResult GetMoods()
+        {
+            return Ok(_context.Moods.ToList());
+        }
     }
 }
