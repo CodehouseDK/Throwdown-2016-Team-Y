@@ -7,18 +7,23 @@ namespace TeamY.Controllers
     public class HomeController : Controller
     {
         readonly IUserService _nameService;
-        private readonly IOctopusService _octopusService;
+        readonly IOctopusService _octopusService;
+        readonly ILocationDetailsService _locationDetailsService;
 
-        public HomeController(IUserService nameService, IOctopusService octopusService)
+        public HomeController(IUserService nameService, IOctopusService octopusService, ILocationDetailsService locationDetailsService)
         {
             _nameService = nameService;
             _octopusService = octopusService;
+            _locationDetailsService = locationDetailsService;
         }
 
         public IActionResult Index()
         {
-            var model = new HomeModel(_nameService.Current(User));
-            model.LatestDeployments = _octopusService.GetDeployments(5);
+            var model = new HomeModel(_nameService.Current(User))
+            {
+                LatestDeployments = _octopusService.GetDeployments(5),
+                LocationDetails = _locationDetailsService.GetLocationDetails()
+            };
             return View(model);
         }
     }

@@ -1,0 +1,21 @@
+﻿@model IEnumerable<TeamY.Models.Rest.LocationDetailsModel>
+<div class="location--details--container">
+    <div class="data-list">
+        <ul>
+            @foreach (var user in Model)
+            {
+                <!--BEGIN Profile -->
+                <li>
+                    <div class="profile-img">
+                        <img src="@user.UserImage" alt="">
+                    </div>
+                    <div class="profile-location">@user.State</div>
+                    <div class="profile--mood--icon">
+                        <i class="icon-@user.Mood"></i>
+                    </div>
+                </li>
+                <!--END Profile -->
+            }
+        </ul>
+    </div>
+</div>

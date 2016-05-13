@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using TeamY.Domain;
 using TeamY.Models.Octopus;
+using TeamY.Models.Rest;
 
 namespace TeamY.Models
 {
@@ -17,5 +19,6 @@ namespace TeamY.Models
         public string Name { get; }
         public string UserImage { get; }
         public LatestDeploymentsModel LatestDeployments { get; set; }
+        public IEnumerable<LocationDetailsModel> LocationDetails { get; set; }
     }
 }

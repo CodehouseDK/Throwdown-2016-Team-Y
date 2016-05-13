@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 using TeamY.Infrastructure;
 using TeamY.Models.Rest;
 
@@ -20,9 +18,9 @@ namespace TeamY.Controllers
         {
             _context = context;
         }
-        
-        [HttpGet]
-        public IActionResult Get()
+
+        [HttpGet("getall")]
+        public IActionResult GetAll()
         {
             var teams = _context.Teams;
             var users = _context.Users;
