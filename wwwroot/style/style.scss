@@ -185,6 +185,7 @@ header {
 
 main {
     section {
+        clear: both;
     }
 
     .overview {
@@ -310,6 +311,12 @@ main {
                         float: right;
                     }
                 }
+            }
+        }
+
+        div {
+            &:nth-child(even) {
+                float: right;
             }
         }
     }
