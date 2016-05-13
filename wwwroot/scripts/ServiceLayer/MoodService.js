@@ -18,7 +18,7 @@ var MoodService = (function () {
         console.log('success');
     };
     MoodService.prototype.error = function (error, statusCode) {
-        console.log(error);
+        console.error(error);
     };
     return MoodService;
 }());

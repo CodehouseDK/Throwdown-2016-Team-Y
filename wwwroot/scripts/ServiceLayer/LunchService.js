@@ -11,7 +11,7 @@ var LunchService = (function () {
         document.getElementById("lunch-content").innerHTML = jsonResult.Menu;
     };
     LunchService.prototype.error = function (error, statusCode) {
-        alert("error");
+        console.error(error);
     };
     return LunchService;
 }());
