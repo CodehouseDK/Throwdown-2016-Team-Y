@@ -5,7 +5,7 @@ var LunchService = (function () {
     }
     LunchService.prototype.getLunch = function () {
         var xhr = new ajax.AjaxLoader();
-        xhr.getJson("/api/lunch", this.success, this.error);
+        xhr.getJson("/api/lunch", this.success, this.error, this);
     };
     LunchService.prototype.success = function (jsonResult) {
         document.getElementById("lunch-content").innerHTML = jsonResult.Menu;

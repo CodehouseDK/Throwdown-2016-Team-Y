@@ -2,15 +2,15 @@
 var AjaxLoader = (function () {
     function AjaxLoader() {
     }
-    AjaxLoader.prototype.getJson = function (url, success, error) {
+    AjaxLoader.prototype.getJson = function (url, success, error, owner) {
         var xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4) {
                 if (xhr.status === 200) {
-                    success(JSON.parse(xhr.responseText));
+                    success(JSON.parse(xhr.responseText), owner);
                 }
                 else {
-                    error(xhr.responseText, xhr.status);
+                    error(xhr.responseText, xhr.status, owner);
                 }
             }
         };
