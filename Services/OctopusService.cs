@@ -10,7 +10,7 @@ namespace TeamY.Services
 {
     public class OctopusService : IOctopusService
     {
-        private const string Apikey = "API-7FJGWAYAVPOLFLBTWV26YZE88O";
+        private const string Apikey = "#{OctopusKey}";
         private const string DeploymentUrl = "http://octopus/api/deployments";
         private const string EnvironmentUrl = "http://octopus/api/environments/";
         private const string ProjectUrl = "http://octopus/api/projects/";
